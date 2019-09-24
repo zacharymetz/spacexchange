@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d3cdf68f-2c77-4563-ad1a-1390980d8037" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.buckconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flowconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.opensource/project.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.watchmanconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.watchmanconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/__tests__/App-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/BUCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build_defs.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/debug.keystore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/spaceexchange/clientapp/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/spaceexchange/clientapp/MainApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/keystores/BUCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/keystores/debug.keystore.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ReactNativeFirebase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/rename.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landing/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/login/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp-tvOS/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp-tvOSTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcodeproj/xcshareddata/xcschemes/clientapp-tvOS.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcodeproj/xcshareddata/xcschemes/clientapp.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp.xcworkspacecontents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/Base.lproj/LaunchScreen.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/Images.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientapp/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientappTests/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/clientappTests/clientappTests.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metro.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-facebook-login/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-facebook-login/android/src/main/java/com/magus/fblogin/FacebookLoginModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-facebook-login/android/src/main/java/com/magus/fblogin/FacebookLoginModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-facebook-login/android/src/main/java/com/magus/fblogin/FacebookLoginPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-facebook-login/android/src/main/java/com/magus/fblogin/FacebookLoginPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-facebook-login/example/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-facebook-login/example/updateBundle.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-facebook-login/example/updateBundle.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="22" />
+    <option name="y" value="26" />
+    <option name="width" value="1754" />
+    <option name="height" value="1664" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3cdf68f-2c77-4563-ad1a-1390980d8037" name="Default Changelist" comment="" />
+      <created>1569252487322</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569252487322</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="11" y="13" width="877" height="832" extended-state="1" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32936978" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Resources Explorer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Palette&#9;" />
+    </layout>
+  </component>
+</project>
