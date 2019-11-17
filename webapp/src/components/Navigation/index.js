@@ -1,12 +1,23 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
-
+import logoimage from '../../img/fav.png'
 import { AuthUserContext } from '../Session';
-
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem } from 'reactstrap';
 
 const Navigation = () => (
     
@@ -33,18 +44,35 @@ const NavigationAuth = () => (
     </div>
 );
   
-const NavigationNonAuth = () => (
+const NavigationNonAuth = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-    <div class="nav-bar">
+    const toggle = () => setIsOpen(!isOpen);
+    return (
+    
+    <div>
+      <Navbar color="light" light expand="md">
+      <NavbarBrand href={ROUTES.LANDING}>
+        <img src={logoimage} width="30" height="30" alt="" /> Spaceful</NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href={ROUTES.SIGN_UP}>Signup</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href={ROUTES.SIGN_IN}>Login</NavLink>
+            </NavItem>
+            
+          </Nav>
+        </Collapse>
         
-        <Link to={ROUTES.LANDING} class="nav-brand"></Link>
-        <div class="nav-list">
-        <Link to={ROUTES.SIGN_UP} class="nav-list-item">Sign Up</Link>
-        <Link to={ROUTES.SIGN_IN} class="nav-list-item">Login</Link>
         
-        </div>
+        
+        
+        </Navbar>
     </div>
     
-);
+)};
 
 export default Navigation;

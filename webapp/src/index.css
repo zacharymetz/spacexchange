@@ -66,13 +66,13 @@ body{
 }
 
 .nav-brand{
-  background-image: url(img/fav.png);
+  background-image: url(/img/fav.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height:2rem;
   width:2rem;
-  margin:1rem 2rem;
+  display:inline-block;
   
 }
 h1{
