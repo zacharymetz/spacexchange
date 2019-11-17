@@ -10,9 +10,11 @@ import LocationListing from './componets/location';
 //  or juts let them in cuz it just goes to the 
 //  first page on the list 
 const MainNavigator = createStackNavigator({
+	LandingPage : {screen :LandingPage},
+	LocationListing : {screen: LocationListing},
   OnBoarding: {screen: onboarding},
-  LandingPage : {screen :LandingPage},
-  LocationListing : {screen: LocationListing},
+  
+  
   
   ConfirmPhone: {screen: ConfirmPhone},
   EnableNotifications: {screen: ConfirmPhone}

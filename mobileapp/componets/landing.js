@@ -95,10 +95,7 @@ export default class LandingPage extends Component {
 
     return (
         <View style={styles.container}>
-            < SideNav
-            navigator = {navigate}
             
-           /> 
           {map}
           <View style={styles.slider}>
           <Carousel

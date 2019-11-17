@@ -4,7 +4,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.main}>
-          <Image style={styles.socailIcon} source={require('../assets/facebook-logo.png')}/>
+          {/* <Image style={styles.socailIcon} source={require('../assets/facebook-logo.png')}/> */}
           <Text style={styles.loginText}>
             Continue with facebook
           </Text >
