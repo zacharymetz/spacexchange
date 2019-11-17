@@ -28,7 +28,6 @@ const INITIAL_STATE = {
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
-
     this.state = { ...INITIAL_STATE };
   }
 
@@ -60,7 +59,6 @@ class SignUpFormBase extends Component {
       passwordOne === "" ||
       email === "" ||
       username === "";
-
     return (
       <form onSubmit={this.onSubmit}>
         <FormGroup>
@@ -75,31 +73,34 @@ class SignUpFormBase extends Component {
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input
-            type="email"
             name="email"
-            id="exampleEmail"
-            placeholder="Your email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
           />
         </FormGroup>
         <FormGroup>
           <Label for="Password">Password</Label>
           <Input
+            name="passwordOne"
+            value={passwordOne}
+            onChange={this.onChange}
             type="password"
-            name="password"
-            id="examplePassword"
             placeholder="Password"
           />
         </FormGroup>
         <FormGroup>
           <Label for="Password2">Password</Label>
           <Input
+            name="passwordTwo"
+            value={passwordTwo}
+            onChange={this.onChange}
             type="password"
-            name="password2"
-            id="examplePassword2"
-            placeholder="Confirm password"
+            placeholder="Confirm Password"
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Button>Next</Button>
 
         {error && <p>{error.message}</p>}
       </form>

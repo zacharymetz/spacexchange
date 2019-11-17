@@ -64,18 +64,20 @@ class SignInFormBase extends Component {
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input
-            type="email"
             name="email"
-            id="exampleEmail"
-            placeholder="Your email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
           />
         </FormGroup>
         <FormGroup>
           <Label for="Password">Password</Label>
           <Input
-            type="password"
             name="password"
-            id="examplePassword"
+            value={password}
+            onChange={this.onChange}
+            type="password"
             placeholder="Password"
           />
         </FormGroup>
