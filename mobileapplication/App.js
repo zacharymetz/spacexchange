@@ -26,6 +26,7 @@ export default function App() {
   if (!user) {
     return (
       <View>
+        <Text>ASasaS</Text>
         <Login></Login>
       </View>
     );
