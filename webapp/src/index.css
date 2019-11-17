@@ -80,27 +80,8 @@ h1{
     margin: 0px !important;
     padding: 0px !important;
 }
-.nav-list{
-  flex-grow:1;
-  justify-content:flex-end;
-  display:flex;
-  margin:1.5rem 3rem 0 0;
-  
-}
-.nav-list-item:hover{
-  border-bottom:2px solid black;
-  text-decoration:none; 
-}
-.nav-list-item{
-  margin-left:4rem;
-  font-weight:600;
-  cursor:pointer;
-  transition: all .1s ease-in-out;
-  text-decoration: none;
-}
-.nav-list-item:visited {
-  color: #484848 !important;
-}
+
+
 
 
 .query-window{
