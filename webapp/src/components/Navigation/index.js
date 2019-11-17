@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
-import logoimage from '../../img/fav.png'
+import logoimage from '../../img/logo-dark.svg'
 import { AuthUserContext } from '../Session';
 import {
     Collapse,
@@ -17,7 +17,8 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem } from 'reactstrap';
+    DropdownItem,
+    Button  } from 'reactstrap';
 
 const Navigation = () => (
     
@@ -29,20 +30,41 @@ const Navigation = () => (
     
 );
   
-const NavigationAuth = () => (
+const NavigationAuth = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
+    return (
 
     
-    
-    <div class="nav-bar">
+    <Navbar color="light" light expand="md">
+      <NavbarBrand href={ROUTES.LANDING}>
+        <img src={logoimage} width="30" height="30" alt="" style={{marginRight:"0.5rem"}} />Spaceful</NavbarBrand>
+      <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+          <NavItem>
+              
+              <NavLink href={ROUTES.SIGN_UP}>About</NavLink>
+            </NavItem>
             
-        <Link to={ROUTES.LANDING} class="nav-brand"></Link>
-        <div class="nav-list">
+         
+            <NavItem>
+              <NavLink href={ROUTES.ACCOUNT}>My Account</NavLink>
+            </NavItem>
+            <NavItem>
+            <SignOutButton />
+            </NavItem>
+            
+          </Nav>
+        </Collapse>
         
-        <Link to={ROUTES.ACCOUNT} class="nav-list-item">Account</Link>
-        <SignOutButton />
-        </div>
-    </div>
-);
+        
+        
+        
+        </Navbar>
+
+)};
   
 const NavigationNonAuth = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -53,15 +75,21 @@ const NavigationNonAuth = () => {
     <div>
       <Navbar color="light" light expand="md">
       <NavbarBrand href={ROUTES.LANDING}>
-        <img src={logoimage} width="30" height="30" alt="" /> Spaceful</NavbarBrand>
+        <img src={logoimage} width="30" height="30" alt="" style={{marginRight:"0.5rem"}} />Spaceful</NavbarBrand>
       <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
+          <NavItem>
+              
+              <NavLink href={ROUTES.SIGN_UP}>About</NavLink>
+            </NavItem>
+            
             <NavItem>
-              <NavLink href={ROUTES.SIGN_UP}>Signup</NavLink>
+                
+              <NavLink href={ROUTES.SIGN_IN}>Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={ROUTES.SIGN_IN}>Login</NavLink>
+              <NavLink href={ROUTES.SIGN_UP}>Signup</NavLink>
             </NavItem>
             
           </Nav>
