@@ -17,7 +17,26 @@ const HomePage = () => (
       <Button>Account Settings</Button>
     </ButtonGroup>
     
-    <div>
+    <div style={{
+      display : "flex",
+      marginTop : "2rem",
+      justifyContent : "center",
+
+
+    }}>
+      <div style={{
+        border: "1px solid black",
+        height:"16rem",
+        width:"20rem",
+        margin: "0 1rem"
+      }}></div>
+
+<div style={{
+        border: "1px solid black",
+        height:"16rem",
+        width:"20rem",
+        margin: "0 1rem"
+      }}></div>
     
       
     </div>

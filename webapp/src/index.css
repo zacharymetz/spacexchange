@@ -71,6 +71,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   height: 2rem;
   width: 2rem;
   display: inline-block;
@@ -100,6 +101,8 @@ h1 {
 .nav-list-item:visited {
   color: #484848 !important;
 }
+
+
 
 .query-window {
   background: #ffffff !important;

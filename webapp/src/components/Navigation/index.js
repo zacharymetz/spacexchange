@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
-import logoimage from '../../img/logo-dark.svg'
+import logoimage from '../../img/logo-white.svg'
 import { AuthUserContext } from '../Session';
 import {
     Collapse,
@@ -37,7 +37,7 @@ const NavigationAuth = () => {
     return (
 
     
-    <Navbar color="light" light expand="md">
+    <Navbar  color="dark" dark expand="md">
       <NavbarBrand href={ROUTES.LANDING}>
         <img src={logoimage} width="30" height="30" alt="" style={{marginRight:"0.5rem"}} />Spaceful</NavbarBrand>
       <NavbarToggler onClick={toggle} />
@@ -73,7 +73,7 @@ const NavigationNonAuth = () => {
     return (
     
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" dark expand="md">
       <NavbarBrand href={ROUTES.LANDING}>
         <img src={logoimage} width="30" height="30" alt="" style={{marginRight:"0.5rem"}} />Spaceful</NavbarBrand>
       <NavbarToggler onClick={toggle} />
