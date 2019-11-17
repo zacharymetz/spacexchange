@@ -14,7 +14,12 @@
     "@react-native-firebase/app": "6.0.3",
     "@react-native-firebase/auth": "^6.0.3",
     "react": "16.8.6",
-    "react-native": "0.60.5"
+    "react-native": "0.60.5",
+    "react-native-gesture-handler": "^1.5.0",
+    "react-native-maps": "0.26.1",
+    "react-native-phone-input": "^0.2.4",
+    "react-native-snap-carousel": "^3.8.4",
+    "react-navigation": "^3.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

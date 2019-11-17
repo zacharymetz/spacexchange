@@ -31,6 +31,20 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = mobileapplication;
 		};
+		05F59A5823812D32001AE8B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05F59A5323812D32001AE8B7 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNGestureHandler;
+		};
+		05F59A5A23812D32001AE8B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05F59A5323812D32001AE8B7 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
+			remoteInfo = "RNGestureHandler-tvOS";
+		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -46,6 +60,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* mobileapplicationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mobileapplicationTests.m; sourceTree = "<group>"; };
 		05F59A512381023E001AE8B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05F59A5323812D32001AE8B7 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../../mobileapp/node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		0B22F909E51B229AC87740EC /* Pods-mobileapplicationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileapplicationTests.debug.xcconfig"; path = "Target Support Files/Pods-mobileapplicationTests/Pods-mobileapplicationTests.debug.xcconfig"; sourceTree = "<group>"; };
 		10BCB4F6ED2E9E79681F1A30 /* Pods-mobileapplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileapplication.release.xcconfig"; path = "Target Support Files/Pods-mobileapplication/Pods-mobileapplication.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* mobileapplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileapplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +139,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		05F59A5423812D32001AE8B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05F59A5923812D32001AE8B7 /* libRNGestureHandler.a */,
+				05F59A5B23812D32001AE8B7 /* libRNGestureHandler-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* mobileapplication */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +200,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				05F59A5323812D32001AE8B7 /* RNGestureHandler.xcodeproj */,
 				05F59A512381023E001AE8B7 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* mobileapplication */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -318,6 +343,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 05F59A5423812D32001AE8B7 /* Products */;
+					ProjectRef = 05F59A5323812D32001AE8B7 /* RNGestureHandler.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* mobileapplication */,
@@ -327,6 +358,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		05F59A5923812D32001AE8B7 /* libRNGestureHandler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGestureHandler.a;
+			remoteRef = 05F59A5823812D32001AE8B7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05F59A5B23812D32001AE8B7 /* libRNGestureHandler-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNGestureHandler-tvOS.a";
+			remoteRef = 05F59A5A23812D32001AE8B7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {

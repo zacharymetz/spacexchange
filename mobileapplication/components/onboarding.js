@@ -2,16 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, View, Image,TextInput, TouchableHighlight } from 'react-native';
 import Login from './fblogin';
 import PhoneInput from 'react-native-phone-input';
-export default class onboarding extends React.Component {
+export default class Onboarding extends React.Component {
     static navigationOptions = {
         title: 'Welcome',
       };
   render (){
-    const {navigate} = this.props.navigation;
+    // const {navigate} = this.props.navigation;
     return (
     <View style={styles.container}>
       <View style={styles.brand}>
-        <Image style={styles.logo} source={require('../assets/logo.png')}/>
+        {/* <Image style={styles.logo} source={require('../assets/logo.png')}/> */}
         <Text style={styles.brandText}>Spaceful</Text>
       </View>
       <View style={styles.jumbotron}>
@@ -22,7 +22,8 @@ export default class onboarding extends React.Component {
 
         <View >
             <TouchableHighlight style={styles.button}
-                onPress={() => navigate('ConfirmPhone', {name: 'Jane'})}>
+                // onPress={() => navigate('ConfirmPhone', {name: 'Jane'})}>
+                >
             <Text style={styles.buttonText}>
               Next
             </Text >
@@ -34,7 +35,7 @@ export default class onboarding extends React.Component {
 
           <View style={styles.orLine}></View>
         </View>
-        <Login></Login>
+        <Login/>
         
       </View>
     </View>

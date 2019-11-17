@@ -136,7 +136,6 @@ export default class LandingPage extends Component {
                             </TouchableHighlight>
                         )
                     }
-                
                 }}
               sliderWidth={Dimensions.get('window').width}
               itemWidth={Dimensions.get('window').width / 1.7}
