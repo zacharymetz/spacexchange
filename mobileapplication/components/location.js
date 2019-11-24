@@ -17,10 +17,7 @@ export default class LocationListing extends Component {
         };
     }
 
-    
-
     render (){
-
         const {navigate} = this.props.navigation;
         var region = {
             latitude: 51.0447,
@@ -99,14 +96,15 @@ export default class LocationListing extends Component {
                     <Text style={styles.title}>Spaces</Text>
                 </View>
                 <View style={styles.list}>
-                    <View style={styles.listItem}>
-                        <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
-                        <View style={styles.listItemContent}>
-                            <Text style={styles.listItemTitle}>Cubical</Text>
-                            <Text style={styles.listItemSubText}>$15 / Day</Text>
+                    <TouchableHighlight style={styles.button} onPress={()=>navigate('SpaceCalender')}>   
+                        <View style={styles.listItem}>
+                            <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
+                            <View style={styles.listItemContent}>
+                                <Text style={styles.listItemTitle}>Cubical</Text>
+                                <Text style={styles.listItemSubText}>$15 / Day</Text>
+                            </View> 
                         </View>
-                    </View>
-
+                    </TouchableHighlight>
                     <View style={styles.listItem}>
                         <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
                         <View style={styles.listItemContent}>
@@ -206,8 +204,6 @@ export default class LocationListing extends Component {
         </ScrollView>
         </SafeAreaView>)
     }
-
-
 }
 
 const styles = StyleSheet.create({ 
@@ -312,8 +308,6 @@ const styles = StyleSheet.create({
       listImage:{
         height : 96,
         width : 128,
-        
-
       },
       listItemContent:{
         height : 96,
@@ -343,6 +337,5 @@ const styles = StyleSheet.create({
       mediaCarousel: {
         height : (Dimensions.get('window').width/1.3) + 20
       }
-      
-
-})
+    }
+)

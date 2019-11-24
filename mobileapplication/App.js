@@ -4,24 +4,25 @@ import onboarding from './components/onboarding';
 import ConfirmPhone from './components/confirmPhone';
 import LandingPage from './components/landing';
 import LocationListing from './components/location';
+import SideMenu from './components/sideMenu';
 import auth from '@react-native-firebase/auth';
 import { firebase } from '@react-native-firebase/auth';
 import React, { useState, useEffect } from 'react';
 import {View, Text} from 'react-native';
+import SpaceCalender from './components/spaceCalender';
 
-//  we should do something and then 
+//  we should do something and then
 //  decied weathe r to send them to onboarding
-//  or juts let them in cuz it just goes to the 
-//  first page on the list 
+//  or juts let them in cuz it just goes to the
+//  first page on the list
 const MainNavigator = createStackNavigator({
 	LandingPage : {screen :LandingPage},
 	LocationListing : {screen: LocationListing},
   OnBoarding: {screen: onboarding},
-  
-  
-  
   ConfirmPhone: {screen: ConfirmPhone},
-  EnableNotifications: {screen: ConfirmPhone}
+  EnableNotifications: {screen: ConfirmPhone},
+  SideMenu: {screen: SideMenu},
+  SpaceCalender: {screen: SpaceCalender}
 },{
   headerMode: 'none',
   navigationOptions: {

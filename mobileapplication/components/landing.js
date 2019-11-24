@@ -140,15 +140,15 @@ export default class LandingPage extends Component {
               sliderWidth={Dimensions.get('window').width}
               itemWidth={Dimensions.get('window').width / 1.7}
             />
-          </View><View style={{position :"absolute", top :32, right : 16}} >
-          <TouchableHighlight style={{padding:8,backgroundColor:"white",borderRadius:50, elevation : 3}}
-            onPress={()=>alert("menu")}
-          >
-              <Image style={{height :24, width :24}}
-              resizeMode='contain'
-              source ={require('../assets/icons/menu.png')} />
-          </TouchableHighlight>
-      </View>
+          </View>
+          <View style={{position :"absolute", top :32, right : 16}} >
+            <TouchableHighlight style={{padding:8,backgroundColor:"white",borderRadius:50, elevation : 3}}
+                onPress={()=>navigate('SideMenu')}>
+                <Image style={{height :24, width :24}}
+                resizeMode='contain'
+                source ={require('../assets/icons/menu.png')} />
+            </TouchableHighlight>
+          </View>
       </View>
       
       

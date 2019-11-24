@@ -1,5 +1,5 @@
 import React, {Component,useState, useEffect} from 'react'
-import { Animated,StyleSheet, Text, View,Dimensions, Image,TextInput, TouchableHighlight ,Platform} from 'react-native';
+import { Animated,StyleSheet, Text, View, Dimensions, Image,TextInput, TouchableHighlight ,Platform} from 'react-native';
 
 
 export default class SideNav extends Component {
@@ -9,9 +9,6 @@ export default class SideNav extends Component {
         this.state = {
             isOpen : false
         };
-
-        
-
     }
 
     toggle(){
@@ -21,8 +18,6 @@ export default class SideNav extends Component {
     }
 
     render(){
-        
-
         return(<Animated.View style={styles.container}>
             <View style={styles.cancelWrapper}>
             <TouchableHighlight onPress={()=>this.toggle}>
