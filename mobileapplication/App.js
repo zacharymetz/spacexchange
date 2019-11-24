@@ -5,6 +5,7 @@ import ConfirmPhone from './components/confirmPhone';
 import LandingPage from './components/landing';
 import LocationListing from './components/location';
 import SideMenu from './components/sideMenu';
+import ShoppingCart from './components/shoppingCart';
 import auth from '@react-native-firebase/auth';
 import { firebase } from '@react-native-firebase/auth';
 import React, { useState, useEffect } from 'react';
@@ -22,7 +23,8 @@ const MainNavigator = createStackNavigator({
   ConfirmPhone: {screen: ConfirmPhone},
   EnableNotifications: {screen: ConfirmPhone},
   SideMenu: {screen: SideMenu},
-  SpaceCalender: {screen: SpaceCalender}
+  SpaceCalender: {screen: SpaceCalender},
+  ShoppingCart: {screen: ShoppingCart}
 },{
   headerMode: 'none',
   navigationOptions: {

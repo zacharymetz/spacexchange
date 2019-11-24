@@ -119,7 +119,6 @@ export default class LocationListing extends Component {
                             <Text style={styles.listItemSubText}>$20 / hour</Text>
                         </View>
                     </View>
-
                 </View>
             </View>
 
@@ -150,8 +149,7 @@ export default class LocationListing extends Component {
                         <Image style={styles.reviewStar} source={require('../assets/star.png')} />
                         <Image style={styles.reviewStar} source={require('../assets/star.png')} />
                     </View>
-                </View>
-                
+                </View>   
                 <View style={styles.reviewSummary}>
                     <View style={styles.reviewSummaryItem}>
                         <Text style={styles.reviewSummaryItemText}>Category</Text>
@@ -185,12 +183,10 @@ export default class LocationListing extends Component {
                             <Image style={styles.reviewStar} source={require('../assets/star.png')} />
                             <Image style={styles.reviewStar} source={require('../assets/star.png')} />
                             <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                        </View>
-                        
+                        </View>  
                     </View>
                     <Text>There might be something wrong with the coffee make ? I'm Not so sure it could honestly be aything so why not go for it </Text>
                     </View>
-
                 </View>
                 <TouchableHighlight>
                     <Text  style={{textAlign : "center",marginTop:16}}> More Reviews </Text>
@@ -303,7 +299,6 @@ const styles = StyleSheet.create({
         borderBottomColor : "black",
         display : "flex",
         flexDirection : "row"
-
       },
       listImage:{
         height : 96,

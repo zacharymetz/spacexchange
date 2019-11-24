@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     },
     rating_stars: {
         width: "100%",
-        margin: 15,
         display : "flex", 
         flexDirection : "row", 
         flexGrow: 1, 

@@ -9,8 +9,7 @@ export default class Login extends Component {
             <Button title="Login">
             </Button>
             <Button title="Register" onPress={() => Alert.alert('Simple Button pressed')}>
-            </Button>
-            
+            </Button>      
         <Text>HERE FDSAFDSA</Text>
       </View>
     );

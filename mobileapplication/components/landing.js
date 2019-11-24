@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,Dimensions, Image,TextInput, TouchableHighlight 
 import MapView ,{UrlTile, Marker} from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import SideNav from './sideMenu'
+import ShoppingCart from './shoppingCart'
 
 export default class LandingPage extends Component {
     constructor(props) {
@@ -68,8 +69,7 @@ export default class LandingPage extends Component {
             maximumZ : 25
         });
     }
-    
-    
+
   render() {
     const {navigate} = this.props.navigation;
     var region = {
@@ -108,31 +108,26 @@ export default class LandingPage extends Component {
               renderItem={ ({item, index}) => { 
                   
                     if(index == 0){
-                        return(
-                            
-                            < TouchableHighlight
-                             >
-                            <View style={styles.sliderItem}>
-                              
-                              <View  style={{flexDirection : "row"}}>
-                                  <Text style={styles.sliderItemText}>Swipe Left to start Looking, or Swipe up for a more detailed Search</Text>
-                                  
-                              </View>
-                              </View>
-                            </ TouchableHighlight>
+                        return(  
+                            <TouchableHighlight>
+                                <View style={styles.sliderItem}>
+                                    <View  style={{flexDirection : "row"}}>
+                                        <Text style={styles.sliderItemText}>Swipe Left to start Looking, or Swipe up for a more detailed Search</Text> 
+                                    </View>
+                                </View>
+                            </TouchableHighlight>
                         )
-                    }else {
+                    }
+                    else {
                         return(
-                            <TouchableHighlight
-                            onPress={() => navigate('LocationListing', {item : item})}
-                             >
-                            <View style={styles.sliderItem}>
-                              <Image  source={require('../assets/cubical.jpg')} style={styles.sliderItemImage} />
-                              <View  style={{flexDirection : "row"}}>
-                                  <Text style={styles.sliderItemText}>{ item.title }</Text>
-                                  <Text style={styles.sliderSubText}>$15</Text>
-                              </View>
-                              </View>
+                            <TouchableHighlight onPress={() => navigate('LocationListing', {item : item})}>
+                                <View style={styles.sliderItem}>
+                                    <Image  source={require('../assets/cubical.jpg')} style={styles.sliderItemImage} />
+                                    <View  style={{flexDirection : "row"}}>
+                                        <Text style={styles.sliderItemText}>{ item.title }</Text>
+                                        <Text style={styles.sliderSubText}>$15</Text>
+                                    </View>
+                                </View>
                             </TouchableHighlight>
                         )
                     }
@@ -140,18 +135,24 @@ export default class LandingPage extends Component {
               sliderWidth={Dimensions.get('window').width}
               itemWidth={Dimensions.get('window').width / 1.7}
             />
-          </View>
-          <View style={{position :"absolute", top :32, right : 16}} >
+        </View>
+        <View style={{position :"absolute", top :40, left : 16}} >
             <TouchableHighlight style={{padding:8,backgroundColor:"white",borderRadius:50, elevation : 3}}
                 onPress={()=>navigate('SideMenu')}>
                 <Image style={{height :24, width :24}}
                 resizeMode='contain'
                 source ={require('../assets/icons/menu.png')} />
             </TouchableHighlight>
-          </View>
+        </View>
+        <View style={{position :"absolute", top :40, right: 16}} >
+            <TouchableHighlight style={{padding:8,backgroundColor:"white",borderRadius:50, elevation : 3}}
+                onPress={()=>navigate('ShoppingCart')}>
+                <Image style={{height :24, width :24}}
+                resizeMode='contain'
+                source ={require('../assets/icons/shopping-cart.png')} />
+            </TouchableHighlight>
+        </View>
       </View>
-      
-      
     );
   }
 };
@@ -197,9 +198,8 @@ const styles = StyleSheet.create({
         flexGrow : 1,
         flex : 1,
         width: null,
-    height: null,
-    resizeMode: 'cover'
-        
+        height: null,
+        resizeMode: 'cover'     
     },
     sliderItemText : {
         margin: 8,
