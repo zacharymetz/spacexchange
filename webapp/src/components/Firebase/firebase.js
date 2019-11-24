@@ -2,14 +2,16 @@ import app from 'firebase/app';
 
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/firebase-firestore'
 const config = {
-    apiKey: "AIzaSyCaiK8Te6AZPKwqAHdoiVH42UghP69nlXk",
-    authDomain: "avanrent0.firebaseapp.com",
-    databaseURL: "https://avanrent0.firebaseio.com",
-    projectId: "avanrent0",
-    storageBucket: "avanrent0.appspot.com",
-    messagingSenderId: "853943617196",
-    appId: "1:853943617196:web:81c1446bf53c8311"
+  apiKey: "AIzaSyAjWJo4Wt7YRIjMZJW6fEWIoLTDOiEyb48",
+  authDomain: "spacex-82314.firebaseapp.com",
+  databaseURL: "https://spacex-82314.firebaseio.com",
+  projectId: "spacex-82314",
+  storageBucket: "spacex-82314.appspot.com",
+  messagingSenderId: "593009060272",
+  appId: "1:593009060272:web:13d69a723c4fd7c4a18e75",
+  measurementId: "G-ZYNLJG9YRP"
   };
 
 
@@ -19,6 +21,7 @@ class Firebase {
 
     this.auth = app.auth();
     this.db = app.database();
+    this.firestore = app.firestore();
   }
 
   // *** Auth API ***
@@ -38,6 +41,9 @@ class Firebase {
 
 
   // *** User API ***
+
+  
+
 
   user = uid => this.db.ref(`users/${uid}`);
 
