@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { AuthUserContext, withAuthorization } from "../Session";
 
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
@@ -36,7 +37,24 @@ class SignUpFormBase extends Component {
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
+      .then(() => {
+        this.props.firebase.doSignInWithEmailAndPassword(email, passwordOne);
+      })
+      .then(() => {
+        // Create a user in your Firebase Cloud Firestore
+        console.log("YOOOOOOOOOO", username);
+        const db = this.props.firebase.firestore;
+        const id = this.props.firebase.id();
+        const ref = db
+          .collection("UserData")
+          .doc(id)
+          .set({
+            username: username,
+            email: email,
+            new: true
+          });
+      })
+      .then(() => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
       })
@@ -49,6 +67,7 @@ class SignUpFormBase extends Component {
 
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+    console.log("HEEEEEEEEEEY");
   };
 
   render() {
@@ -62,12 +81,13 @@ class SignUpFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <FormGroup>
-          <Label for="Name">Name</Label>
+          <Label for="name">Name</Label>
           <Input
-            type="name"
             name="name"
-            id="namepholder"
-            placeholder="FirstName LastName"
+            value={username}
+            onChange={this.onChange}
+            type="text"
+            placeholder="First Last"
           />
         </FormGroup>
         <FormGroup>
