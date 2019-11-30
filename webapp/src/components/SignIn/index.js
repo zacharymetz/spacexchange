@@ -97,7 +97,6 @@ class SignInFormBase extends Component {
         <Button disabled={isInvalid} type="submit">
           Sign In
         </Button>
-
         {error && <p>{error.message}</p>}
       </form>
     );
