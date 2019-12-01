@@ -1,106 +1,112 @@
-import React , { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import SignOutButton from '../SignOut';
-import * as ROUTES from '../../constants/routes';
+import SignOutButton from "../SignOut";
+import * as ROUTES from "../../constants/routes";
 
-import logoimage from '../../img/logo-white.svg'
-import { AuthUserContext } from '../Session';
+import logoimage from "../../img/logo-dark.svg";
+import { AuthUserContext } from "../Session";
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    Button  } from 'reactstrap';
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Button
+} from "reactstrap";
 
 const Navigation = () => (
-    
-        <AuthUserContext.Consumer>
-        {authUser =>
-            authUser ? <NavigationAuth /> : <NavigationNonAuth />
-        }
-        </AuthUserContext.Consumer>
-    
+  <AuthUserContext.Consumer>
+    {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
+  </AuthUserContext.Consumer>
 );
-  
+
 const NavigationAuth = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => setIsOpen(!isOpen);
-    return (
-
-    
-    <Navbar  color="dark" dark expand="md">
-      <NavbarBrand href={ROUTES.LANDING}>
-        <img src={logoimage} width="30" height="30" alt="" style={{marginRight:"0.5rem"}} />Spaceful</NavbarBrand>
+  const toggle = () => setIsOpen(!isOpen);
+  return (
+    <Navbar color="light" dark expand="md">
+      <NavbarBrand href={ROUTES.LANDING} style={{ color: "black" }}>
+        <img
+          src={logoimage}
+          width="30"
+          height="30"
+          alt=""
+          style={{ marginRight: "0.5rem" }}
+        />
+        Spaceful
+      </NavbarBrand>
       <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="ml-auto" navbar>
           <NavItem>
-              
-              <NavLink href={ROUTES.SIGN_UP}>About</NavLink>
-            </NavItem>
-            
-         
-            <NavItem>
-              <NavLink href={ROUTES.ACCOUNT}>My Account</NavLink>
-            </NavItem>
-            <NavItem>
+            <NavLink href={ROUTES.SIGN_UP} style={{ color: "black" }}>
+              About
+            </NavLink>
+          </NavItem>
+
+          <NavItem>
+            <NavLink href={ROUTES.ACCOUNT} style={{ color: "black" }}>
+              My Account
+            </NavLink>
+          </NavItem>
+          <NavItem>
             <SignOutButton />
-            </NavItem>
-            
-          </Nav>
-        </Collapse>
-        
-        
-        
-        
-        </Navbar>
+          </NavItem>
+        </Nav>
+      </Collapse>
+    </Navbar>
+  );
+};
 
-)};
-  
 const NavigationNonAuth = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => setIsOpen(!isOpen);
-    return (
-    
+  const toggle = () => setIsOpen(!isOpen);
+  return (
     <div>
-      <Navbar color="dark" dark expand="md">
-      <NavbarBrand href={ROUTES.LANDING}>
-        <img src={logoimage} width="30" height="30" alt="" style={{marginRight:"0.5rem"}} />Spaceful</NavbarBrand>
-      <NavbarToggler onClick={toggle} />
+      <Navbar color="light" dark expand="md">
+        <NavbarBrand href={ROUTES.LANDING} style={{ color: "black" }}>
+          <img
+            src={logoimage}
+            width="30"
+            height="30"
+            alt=""
+            style={{ marginRight: "0.5rem" }}
+          />
+          Spaceful
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-          <NavItem>
-              
-              <NavLink href={ROUTES.SIGN_UP}>About</NavLink>
-            </NavItem>
-            
             <NavItem>
-                
-              <NavLink href={ROUTES.SIGN_IN}>Login</NavLink>
+              <NavLink href={ROUTES.SIGN_UP} style={{ color: "black" }}>
+                About
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href={ROUTES.SIGN_IN} style={{ color: "black" }}>
+                Login
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={ROUTES.SIGN_UP}>Signup</NavLink>
+              <NavLink href={ROUTES.SIGN_UP} style={{ color: "black" }}>
+                Signup
+              </NavLink>
             </NavItem>
-            
           </Nav>
         </Collapse>
-        
-        
-        
-        
-        </Navbar>
+      </Navbar>
     </div>
-    
-)};
+  );
+};
 
 export default Navigation;

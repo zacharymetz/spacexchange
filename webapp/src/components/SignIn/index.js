@@ -24,7 +24,8 @@ const SignInPage = () => (
 const INITIAL_STATE = {
   email: "",
   password: "",
-  error: null
+  error: null,
+  newUser: null
 };
 
 class SignInFormBase extends Component {
@@ -42,6 +43,18 @@ class SignInFormBase extends Component {
       .then(() => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
+      })
+      .then(() => {
+        const db = this.props.firebase.firestore;
+        const id = this.props.firebase.id();
+        console.log("YAAAAAAAAAAAA", id);
+        db.collection("UserData")
+          .doc(id)
+          .get()
+          .then(doc => {
+            const data = doc.data();
+            console.log(data.newUser);
+          });
       })
       .catch(error => {
         this.setState({ error });
@@ -84,7 +97,6 @@ class SignInFormBase extends Component {
         <Button disabled={isInvalid} type="submit">
           Sign In
         </Button>
-
         {error && <p>{error.message}</p>}
       </form>
     );
