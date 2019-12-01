@@ -6,7 +6,7 @@ import { ListGroup, ListGroupItem, Badge } from "reactstrap";
 import { Button, ButtonGroup } from "reactstrap";
 import { withFirebase } from "../Firebase";
 import { compose } from "recompose";
-
+import * as ROUTES from "../../constants/routes";
 const INITIAL_STATE = {
   locations: []
 };
@@ -80,7 +80,7 @@ class HomePageBase extends Component {
           <Button>My Rentals</Button>
           <Button>Metrics</Button>
           <Button>Help Sections</Button>
-          <Button>Account Settings</Button>
+          <Button tag="a" href={ROUTES.ACCOUNT}>Account</Button>
         </ButtonGroup>
 
         <div

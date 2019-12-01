@@ -46,17 +46,18 @@ const NavigationAuth = () => {
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
+        <NavItem>
+            <NavLink href={ROUTES.HOME} style={{ color: "black" }}>
+              Dashboard
+            </NavLink>
+          </NavItem>
           <NavItem>
             <NavLink href={ROUTES.SIGN_UP} style={{ color: "black" }}>
               About
             </NavLink>
           </NavItem>
 
-          <NavItem>
-            <NavLink href={ROUTES.ACCOUNT} style={{ color: "black" }}>
-              My Account
-            </NavLink>
-          </NavItem>
+          
           <NavItem>
             <SignOutButton />
           </NavItem>
