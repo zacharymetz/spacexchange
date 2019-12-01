@@ -11,8 +11,6 @@ import PasswordForgetPage from "../PasswordForget";
 import HomePage from "../Home";
 import AccountPage from "../Account";
 import AdminPage from "../Admin";
-import About from "../About";
-import OnboardingPage from "../Onboarding";
 
 //  all of the about pages
 import NewRenterProfile from "../Rent/registerProfile";
