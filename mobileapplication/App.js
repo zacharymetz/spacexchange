@@ -19,8 +19,8 @@ import SearchScreen from './components/searchScreen';
 //  or juts let them in cuz it just goes to the
 //  first page on the list
 const MainNavigator = createStackNavigator({
-  SearchScreen: {screen: SearchScreen},
   LandingPage : {screen: LandingPage},
+  SearchScreen: {screen: SearchScreen},
   ConfirmCart: {screen: ConfirmCart},
 	LocationListing : {screen: LocationListing},
   OnBoarding: {screen: onboarding},
