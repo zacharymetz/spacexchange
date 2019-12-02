@@ -2,6 +2,9 @@ import React, {Component, useState, useEffect} from 'react'
 import { Text, View, StyleSheet, TouchableHighlight, Dimensions, Image } from 'react-native';
 
 export default class ShoppingCart extends Component {
+    constructor(props){
+        super(props);
+    }
     state = {
         date: new Date(),
       }
@@ -9,6 +12,7 @@ export default class ShoppingCart extends Component {
     onChange = date => this.setState({ date })
 
     render(){
+        const {navigate} = this.props.navigation;
         return(
             <View style={styles.full_screen}>
                 <View style={styles.header}>
@@ -39,10 +43,10 @@ export default class ShoppingCart extends Component {
                 </View>
 
                 <View style={styles.white_space} />
-                <TouchableHighlight>
+                <TouchableHighlight onPress={() => navigate('ConfirmCart')}>
                     <View style={styles.add_cart}>
                         <Text style={styles.add_cart_text}>
-                            Add to cart
+                            Checkout
                         </Text>
                     </View>
                 </TouchableHighlight>

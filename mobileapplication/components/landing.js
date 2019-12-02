@@ -4,7 +4,7 @@ import MapView ,{UrlTile, Marker} from 'react-native-maps';
 import Carousel from 'react-native-snap-carousel';
 import SideNav from './sideMenu'
 import ShoppingCart from './shoppingCart'
-
+import SideMenu from './sideMenu';
 export default class LandingPage extends Component {
     constructor(props) {
         super(props);
@@ -93,9 +93,11 @@ export default class LandingPage extends Component {
         <UrlTile urlTemplate={tileUrl} maximumZ={19} tileSize={256} />
     </MapView>);
 
+    const menu = <SideMenu />;
+    
     return (
         <View style={styles.container}>
-            
+        {menu}
           {map}
           <View style={styles.slider}>
           <Carousel
@@ -112,7 +114,7 @@ export default class LandingPage extends Component {
                             <TouchableHighlight>
                                 <View style={styles.sliderItem}>
                                     <View  style={{flexDirection : "row"}}>
-                                        <Text style={styles.sliderItemText}>Swipe Left to start Looking, or Swipe up for a more detailed Search</Text> 
+                                        <Text style={styles.sliderItemText}>Click to Search</Text> 
                                     </View>
                                 </View>
                             </TouchableHighlight>
@@ -136,14 +138,7 @@ export default class LandingPage extends Component {
               itemWidth={Dimensions.get('window').width / 1.7}
             />
         </View>
-        <View style={{position :"absolute", top :40, left : 16}} >
-            <TouchableHighlight style={{padding:8,backgroundColor:"white",borderRadius:50, elevation : 3}}
-                onPress={()=>navigate('SideMenu')}>
-                <Image style={{height :24, width :24}}
-                resizeMode='contain'
-                source ={require('../assets/icons/menu.png')} />
-            </TouchableHighlight>
-        </View>
+        
         <View style={{position :"absolute", top :40, right: 16}} >
             <TouchableHighlight style={{padding:8,backgroundColor:"white",borderRadius:50, elevation : 3}}
                 onPress={()=>navigate('ShoppingCart')}>
