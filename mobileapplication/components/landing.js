@@ -93,7 +93,18 @@ export default class LandingPage extends Component {
         <UrlTile urlTemplate={tileUrl} maximumZ={19} tileSize={256} />
     </MapView>);
 
-    const menu = <SideMenu />;
+    const menu = (
+    <SideMenu>
+         <TouchableHighlight onPress={() => navigate('TransactionsSummary')}>
+            <View style={styles.navListItem}>
+            <Text style={styles.navListLabel}>
+                Past Transactions
+            </Text>
+            <Image style={styles.chevron} source = {require('../assets/icons/right-chevron.png')}/>
+            </View>
+        </TouchableHighlight>
+    </SideMenu>
+    );
     
     return (
         <View style={styles.container}>
@@ -257,5 +268,23 @@ const styles = StyleSheet.create({
         color : "red",
         fontWeight : "600",
         textAlign : "center"
-    }
+    },
+    navListItem : {
+        width : 280,
+        padding : 16,
+        display: "flex",
+        flexDirection : "row",
+        alignItems : "center",
+        borderBottomWidth : 1,
+        borderBottomColor : "black"
+    },
+    navListLabel : {
+        fontWeight : "600",
+        fontSize : 18,
+        flexGrow : 1
+    },
+    chevron : {
+        height : 16,
+        width : 16
+    },
 });

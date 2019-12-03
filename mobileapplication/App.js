@@ -13,12 +13,16 @@ import React, { useState, useEffect } from 'react';
 import {View, Text} from 'react-native';
 import SpaceCalender from './components/spaceCalender';
 import SearchScreen from './components/searchScreen';
+import TransactionsSummary from './components/transactionsSummary';
+import SpecificTransaction from './components/specificTransaction';
 
 //  we should do something and then
 //  decied weathe r to send them to onboarding
 //  or juts let them in cuz it just goes to the
 //  first page on the list
 const MainNavigator = createStackNavigator({
+  TransactionsSummary: {screen: TransactionsSummary},
+  SpecificTransaction: {screen: SpecificTransaction},
   LandingPage : {screen: LandingPage},
   SearchScreen: {screen: SearchScreen},
   ConfirmCart: {screen: ConfirmCart},
@@ -26,7 +30,8 @@ const MainNavigator = createStackNavigator({
   OnBoarding: {screen: onboarding},
   ConfirmPhone: {screen: ConfirmPhone},
   EnableNotifications: {screen: ConfirmPhone},
-  //SideMenu: {screen: SideMenu},
+
+  SideMenu: {screen: SideMenu},
   
   SpaceCalender: {screen: SpaceCalender},
   ShoppingCart: {screen: ShoppingCart}

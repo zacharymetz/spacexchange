@@ -1,5 +1,5 @@
 import React, {Component,useState, useEffect} from 'react'
-import { Animated,StyleSheet, Text, View, Dimensions, Image,TextInput, TouchableHighlight ,Platform} from 'react-native';
+import { Animated,StyleSheet, Text, View, Dimensions, Image,TextInput, TouchableHighlight ,Platform, Linking} from 'react-native';
 
 import ReactNative from 'react-native';
 
@@ -7,7 +7,6 @@ import ReactNative from 'react-native';
 export default class SideNav extends Component {
     constructor (props){
         super(props)
-
         this.state = {
             bounceValue: new Animated.Value(0),
             bouncePrimeValue: new Animated.Value(100),
@@ -51,7 +50,6 @@ export default class SideNav extends Component {
           
         
     }
-
     render(){
         return(
             <View style={[styles.main]}>
@@ -100,18 +98,16 @@ export default class SideNav extends Component {
                 </TouchableHighlight>
                 <TouchableHighlight onPress={()=>this.toggle(true)}>
                     <View style={styles.navListItem}>
-                    <Text
-                        style={styles.navListLabel}
-                    >
-                        Past Transactions
+                    <Text style={styles.navListLabel}>
+                        Current Rentals
                     </Text>
                     <Image
                         style={styles.chevron}
                         source = {require('../assets/icons/right-chevron.png')}
                     />
                     </View>
-                    
                 </TouchableHighlight>
+                {this.props.children}
                 <TouchableHighlight onPress={()=>this.toggle(true)}>
                     <View style={styles.navListItem}>
                     <Text
@@ -123,8 +119,7 @@ export default class SideNav extends Component {
                         style={styles.chevron}
                         source = {require('../assets/icons/right-chevron.png')}
                     />
-                    </View>
-                    
+                    </View>    
                 </TouchableHighlight>
                 <TouchableHighlight onPress={()=>this.toggle(true)}>
                     <View style={styles.navListItem}>
@@ -149,7 +144,10 @@ export default class SideNav extends Component {
         alignItems : "center",flexGrow:1,justifyContent:"flex-end"}}>
                     <Text styles={{fontSize:24,fontWeight:500}}>Spaceful</Text>
                     <Text styles={{fontSize:24,fontWeight:500}}>V 0.0.1</Text>
-                    <Text styles={{fontSize:24,fontWeight:500}}>Terms | Privacy | About</Text>
+                    {/*<Text styles={{fontSize:24,fontWeight:500}}>Terms | Privacy | About</Text>*/}
+                    <Text style={{color: 'blue'}} onPress={() => Linking.openURL('https://spaceful.logicx.ca/')}>
+                        Terms
+                    </Text>
                     
                 </View>
         </Animated.View>
