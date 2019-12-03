@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
         width : 280,
         position : "relative",
         top : 0,
-        left : 0,
+        left : -280,
         backgroundColor :"white",
         elevation : 4
     },

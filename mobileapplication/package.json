@@ -19,10 +19,12 @@
     "react-dom": "^16.12.0",
     "react-native": "0.60.5",
     "react-native-calendars": "^1.214.0",
+    "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-maps": "0.26.1",
     "react-native-phone-input": "^0.2.4",
     "react-native-snap-carousel": "^3.8.4",
+    "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.13.0",
     "typescript": "^3.7.2"
   },

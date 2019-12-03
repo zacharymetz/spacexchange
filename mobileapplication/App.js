@@ -21,9 +21,9 @@ import SpecificTransaction from './components/specificTransaction';
 //  or juts let them in cuz it just goes to the
 //  first page on the list
 const MainNavigator = createStackNavigator({
+  LandingPage : {screen: LandingPage},
   TransactionsSummary: {screen: TransactionsSummary},
   SpecificTransaction: {screen: SpecificTransaction},
-  LandingPage : {screen: LandingPage},
   SearchScreen: {screen: SearchScreen},
   ConfirmCart: {screen: ConfirmCart},
 	LocationListing : {screen: LocationListing},

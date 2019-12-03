@@ -122,7 +122,7 @@ export default class LandingPage extends Component {
                   
                     if(index == 0){
                         return(  
-                            <TouchableHighlight>
+                            <TouchableHighlight onPress={() => navigate('SearchScreen')}>
                                 <View style={styles.sliderItem}>
                                     <View  style={{flexDirection : "row"}}>
                                         <Text style={styles.sliderItemText}>Click to Search</Text> 
@@ -177,9 +177,7 @@ const styles = StyleSheet.create({
     map : {
         flex : 1,
         height : Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
-        
-        
+        width: Dimensions.get('window').width,  
     },
     slider :{
         height : 200,
