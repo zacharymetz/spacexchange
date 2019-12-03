@@ -7,7 +7,7 @@ export default class Onboarding extends React.Component {
         title: 'Welcome',
       };
   render (){
-    // const {navigate} = this.props.navigation;
+    const {navigate} = this.props.navigation;
     return (
     <View style={styles.container}>
       <View style={styles.brand}>
@@ -22,8 +22,7 @@ export default class Onboarding extends React.Component {
 
         <View >
             <TouchableHighlight style={styles.button}
-                // onPress={() => navigate('ConfirmPhone', {name: 'Jane'})}>
-                >
+                onPress={() => navigate('ConfirmPhone', {name: 'Jane'})}>
             <Text style={styles.buttonText}>
               Next
             </Text >

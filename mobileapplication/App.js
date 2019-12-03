@@ -8,6 +8,7 @@ import auth from '@react-native-firebase/auth';
 import { firebase } from '@react-native-firebase/auth';
 import React, { useState, useEffect } from 'react';
 import {View, Text} from 'react-native';
+import Profile from './components/profile';
 
 //  we should do something and then 
 //  decied weathe r to send them to onboarding
@@ -50,9 +51,8 @@ function App() {
   if (initilizing) return null;
  
   if (!user) {
-    
-    return <Nav/>;
-    
+    return <Profile/>;
+
   }
  
   return (
