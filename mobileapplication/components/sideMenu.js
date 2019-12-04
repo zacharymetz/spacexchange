@@ -78,7 +78,7 @@ export default class SideNav extends Component {
                     style={styles.userimage}
                     source = {require('../assets/icons/user.png')}
                 />
-                <Text style={styles.name}> First Last</Text>
+                <Text style={styles.name}>Danny Metz</Text>
             </View>
             <View style={styles.navList}>
                 <TouchableHighlight onPress={()=>this.toggle(true)}>

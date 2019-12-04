@@ -134,7 +134,7 @@ export default class LandingPage extends Component {
                     if(index == 0){
                         return(  
                             <TouchableHighlight onPress={() => navigate('SearchScreen')}>
-                                <View style={styles.sliderItem}>
+                                <View style={styles.searchText}>
                                     <View  style={{flexDirection : "row"}}>
                                         <Text style={styles.sliderItemText}>Click to Search</Text> 
                                     </View>
@@ -202,6 +202,21 @@ const styles = StyleSheet.create({
         flexDirection : "column",
         shadowOpacity: 0.75,
         shadowRadius: 1,
+        shadowColor: 'black',
+        shadowOffset: { height: 0, width: 0 },
+        borderRadius : 5,
+        elevation  :1,
+        backgroundColor : "white"
+    },
+    searchText : {
+        marginTop : 10,
+        height : 180,
+        display : "flex",
+        justifyContent: "center",
+        flexDirection : "column",
+        shadowOpacity: 0.75,
+        shadowRadius: 1,
+        alignItems: "center",
         shadowColor: 'black',
         shadowOffset: { height: 0, width: 0 },
         borderRadius : 5,
