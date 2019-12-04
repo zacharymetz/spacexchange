@@ -55,7 +55,6 @@ export default class LocationListing extends Component {
                 <Text>123 Fake Street, Calgary Alberta</Text>
                 </View>
             </View>
-            <Image style={styles.headerImage} source={require('../assets/cubical.jpg')} />
             
             <View style={styles.section}>
                 <Text style={styles.title}>About</Text>
@@ -173,10 +172,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         flexDirection: "column",
         height : "100%"
-        
       },
       headerImage :{
-          
             height : 0,
           width : Dimensions.get('window').width,
           resizeMode: 'cover',

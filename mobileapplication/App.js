@@ -26,6 +26,7 @@ import Register from './components/register';
 //  or juts let them in cuz it just goes to the
 //  first page on the list
 const MainNavigator = createStackNavigator({
+  SpaceCalender: {screen: SpaceCalender},
   LandingPage : {screen: LandingPage},
   LoginRegister: {screen: LoginRegister},
   Login: {screen: Login},
@@ -37,13 +38,9 @@ const MainNavigator = createStackNavigator({
   SearchScreen: {screen: SearchScreen},
   ConfirmCart: {screen: ConfirmCart},
 	LocationListing : {screen: LocationListing},
-  
   ConfirmPhone: {screen: ConfirmPhone},
   EnableNotifications: {screen: ConfirmPhone},
-
   SideMenu: {screen: SideMenu},
-  
-  SpaceCalender: {screen: SpaceCalender},
   ShoppingCart: {screen: ShoppingCart},
   Profile: {screen: Profile},
 },{

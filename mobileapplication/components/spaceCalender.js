@@ -1,88 +1,98 @@
 import React, {Component, useState, useEffect} from 'react'
-import { Text, View, StyleSheet, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
-import Calendar from 'react-calendar/dist/entry.nostyle';
+import { Text, View, StyleSheet, SafeAreaView, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
+import CalendarPicker from 'react-native-calendar-picker';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default class SpaceCalender extends Component {
-    state = {
-        date: new Date(),
+    constructor(props) {
+        super(props);
+        this.state = {
+          selectedStartDate: null,
+        };
+        this.onDateChange = this.onDateChange.bind(this);
+    }  
+    onDateChange(date) {
+        this.setState({
+          selectedStartDate: date,
+        });
       }
-     
-    onChange = date => this.setState({ date })
-
     render(){
         const {navigate} = this.props.navigation;
+        const { selectedStartDate } = this.state;
+        const startDate = selectedStartDate ? selectedStartDate.toString() : '';
         return(
-            <View style={styles.full_screen}>
-                <Image style={styles.header_image} source={require('../assets/cubical.jpg')}/>
-                <View style={styles.description_view}>
-                    <Text style={styles.all_text}>
-                        Description:
-                    </Text>
-                    <Text style={styles.paragraph}>
-                        This cubical is a very nice cubical.
-                    </Text>
-                </View>
-                <View style={styles.review_view}>
-                    <Text style={styles.all_text}>
-                        Reviews:
-                    </Text>
-                    <Text style={styles.paragraph}>
-                    It’s difficult to beat the convenience of viewing a company’s location, 
-                    hours, phone number, and reviews all in one place. That’s likely why Google
-                     reviews are one of the most popular and reliable forms of customer feedback.
-                      So how do you leave a Google review?When you want to find ice cream near you, 
-                      where do you search? On Google. When you find that ice cream shop, what do 
-                      you look at next? How many stars they have, what customers are saying about 
-                      their experience there, and if they have positive reviews. If they have bad 
-                      reviews you’re likely to move on and try to find something better. 
-                      That’s the power of Google reviews.
-                    </Text>
-                </View>
-                <View style={styles.rating_stars}>
-                    <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                    <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                    <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                    <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                    <Image style={styles.star} source={require('../assets/star.png')} />
-                </View>
-                
-                <View style={styles.white_space} />
-                <TouchableHighlight onPress={() => navigate('LandingPage')}>
-                    <View style={styles.add_cart}>
-                        <Text style={styles.add_cart_text}>
-                            Add to cart
-                        </Text>
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.container}>
+                    
+                        <Image style={styles.header_image} source={require('../assets/cubical.jpg')}/>
+                        <View style={styles.description_view}>
+                            <Text style={styles.all_text}>
+                                Description:
+                            </Text>
+                            <Text style={styles.paragraph}>
+                                This cubical is a very nice cubical.
+                            </Text>
                     </View>
-                </TouchableHighlight>
-            </View>
+
+                    {/* Add Calander here*/}
+                    <View style={styles.calendar}>
+                        <CalendarPicker
+                        onDateChange={this.onDateChange}
+                        />
+                    </View>
+                    <View>
+                        <View>
+                            <Text style={styles.all_text}>
+                                Reviews:
+                            </Text>
+                            <Text style={styles.paragraph}>
+                            It’s difficult to beat the convenience of viewing a company’s location, 
+                            hours, phone number, and reviews all in one place. That’s likely why Google
+                            reviews are one of the most popular and reliable forms of customer feedback.
+                            </Text>
+                        </View>
+                        <View style={styles.rating_stars}>
+                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
+                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
+                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
+                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
+                            <Image style={styles.star} source={require('../assets/star.png')} />
+                        </View>
+                    </View>
+                    
+                    <TouchableHighlight onPress={() => navigate('LandingPage')}>
+                        <View style={styles.add_cart}>
+                            <Text style={styles.add_cart_text}>
+                                Add to cart
+                            </Text>
+                        </View>
+                    </TouchableHighlight>
+                
+                </ScrollView>
+            </SafeAreaView>
         )
     }
 }
 
 
 const styles = StyleSheet.create({
-    full_screen: {
-        display: "flex",
+    container: {
+        display:"flex",
+        backgroundColor: '#fff',
         flexDirection: "column",
-        minHeight: "100%"
-    },
+        height : "100%"
+      },
     all_text: {
         fontSize: 18,
-        marginTop:5,
-        marginLeft: 3
     },
     description_view: {
-        marginTop: 0
-    },
-    review_view: {
-        marginTop: 20
     },
     paragraph: {
         marginLeft: 20,
         marginRight: 20
     },
     header_image: {
-        height: "30%",
+        height: 256,
         width: "100%"
     },
     rating_stars: {
@@ -97,8 +107,9 @@ const styles = StyleSheet.create({
         height: 32,
         margin: 8
     },
-    white_space: {
-        flexGrow: 1
+    calendar: {
+        backgroundColor: '#FFFFFF',
+        margin: 8
     },
     add_cart: {
         height: 75,
