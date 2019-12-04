@@ -26,12 +26,12 @@ import Register from './components/register';
 //  or juts let them in cuz it just goes to the
 //  first page on the list
 const MainNavigator = createStackNavigator({
+  LandingPage : {screen: LandingPage},
   LoginRegister: {screen: LoginRegister},
   Login: {screen: Login},
   Register: {screen: Register},
   OnBoarding: {screen: onboarding},
   LocationServices: {screen: LocationServices},
-  LandingPage : {screen: LandingPage},
   TransactionsSummary: {screen: TransactionsSummary},
   SpecificTransaction: {screen: SpecificTransaction},
   SearchScreen: {screen: SearchScreen},
