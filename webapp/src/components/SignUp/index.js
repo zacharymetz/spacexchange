@@ -42,17 +42,17 @@ class SignUpFormBase extends Component {
       })
       .then(() => {
         // Create a user in your Firebase Cloud Firestore
-        console.log("YOOOOOOOOOO", username);
-        const db = this.props.firebase.firestore;
+        console.log("YOOOOOOOOOO", this.username);
+        const db = this.props.firebase;
         const id = this.props.firebase.id();
-        const ref = db
-          .collection("UserData")
-          .doc(id)
-          .set({
-            username: username,
-            email: email,
-            new: true
-          });
+        // const ref = db
+        //   .collection("UserData")
+        //   .doc(id)
+        //   .set({
+        //     username: username,
+        //     email: email,
+        //     new: true
+        //   });
       })
       .then(() => {
         this.setState({ ...INITIAL_STATE });

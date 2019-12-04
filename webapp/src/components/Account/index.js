@@ -13,7 +13,8 @@ import {
   Form,
   Input,
   Row,
-  Col
+  Col,
+  Container
 } from "reactstrap";
 
 const INITIAL_STATE = {
@@ -62,7 +63,7 @@ class AccountPageBase extends Component {
                       <img
                         alt="..."
                         className="avatar"
-                        src={require("../../img/profile.png")}
+                        // src={require("../../img/profile.png")}
                         style={{
                           height: "300px",
                           width: "300px",
@@ -221,7 +222,7 @@ class AccountPageBase extends Component {
                       <img
                         alt="..."
                         className="avatar"
-                        src={require("../../img/profile.png")}
+                        // src={require("../../img/profile.png")}
                         style={{ height: "300px", width: "300px" }}
                       />
                       <h5 className="title">Mike Andrew</h5>

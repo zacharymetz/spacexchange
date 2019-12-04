@@ -1,14 +1,24 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Chart, useChartConfig } from "react-charts";
 import { withAuthorization } from "../Session";
 import { Container } from "reactstrap";
 import { ListGroup, ListGroupItem, Badge } from "reactstrap";
-import { Button, ButtonGroup } from "reactstrap";
+import {
+  Button,
+  ButtonGroup,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
+} from "reactstrap";
 import { withFirebase } from "../Firebase";
 import { compose } from "recompose";
+import SpaceModal from "./spaceModal";
+import AddButton from "./addModal";
 
 const INITIAL_STATE = {
-  locations: []
+  locations: [],
+  docIDs: []
 };
 
 class HomePageBase extends Component {
@@ -23,13 +33,14 @@ class HomePageBase extends Component {
     //  get the list of locations from the db
     const locations = this.props.firebase.firestore.collection("locations");
     let listOfLocations = [];
+    let listOfIDs = [];
     locations.get().then(docs => {
       docs.forEach(element => {
         listOfLocations.push(element.data());
+        listOfIDs.push(element.id);
       });
-      console.log(listOfLocations);
       this.setState({ locations: listOfLocations });
-      console.log(this.state);
+      this.setState({ docIDs: listOfIDs });
     });
   }
 
@@ -43,17 +54,27 @@ class HomePageBase extends Component {
       for (let j in this.state.locations[i].spaces) {
         let element = (
           <ListGroupItem
-            tag="button"
-            action
             className="justify-content-between"
+            style={{ display: "flex" }}
           >
-            {this.state.locations[i].spaces[j].Type}{" "}
-            <Badge pill>{this.state.locations[i].spaces[j].Price}</Badge>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <h4>{this.state.locations[i].spaces[j].Type}</h4>
+              <p>Location: </p>
+            </div>
+
+            <SpaceModal
+              label={this.state.locations[i].spaces[j].Type}
+              occupancy={this.state.locations[i].spaces[j].Occupancy}
+              price={this.state.locations[i].spaces[j].Price}
+              space={this.state.locations[i].spaces[j]}
+              id={this.state.docIDs[i]}
+            ></SpaceModal>
           </ListGroupItem>
         );
 
         spaces.push(element);
       }
+      spaces.push(<AddButton></AddButton>);
       let element = (
         <ListGroupItem
           style={{ background: "rgba(0,0,0,.125)" }}
@@ -65,6 +86,7 @@ class HomePageBase extends Component {
               edit
             </Button>{" "}
           </div>
+
           <ListGroup>{spaces}</ListGroup>
         </ListGroupItem>
       );
@@ -98,7 +120,6 @@ class HomePageBase extends Component {
               margin: "0 1rem"
             }}
           ></div>
-
           <div
             style={{
               border: "1px solid black",
