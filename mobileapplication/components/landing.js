@@ -107,6 +107,14 @@ export default class LandingPage extends Component {
             <Image style={styles.chevron} source = {require('../assets/icons/right-chevron.png')}/>
             </View>
         </TouchableHighlight>
+        <TouchableHighlight onPress={() => navigate('Profile')}>
+            <View style={styles.navListItem}>
+            <Text style={styles.navListLabel}>
+                Account
+            </Text>
+            <Image style={styles.chevron} source = {require('../assets/icons/right-chevron.png')}/>
+            </View>
+        </TouchableHighlight>
     </SideMenu>
     );
     return (

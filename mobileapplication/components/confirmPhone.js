@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image,TextInput, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, Image,TextInput, TouchableHighlight, ImageBackground, Dimensions } from 'react-native';
+import { findConfigFile } from 'typescript';
 export default class ConfirmPhone extends Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View style={styles.container}>
-          <Text style={styles.confimMsg} >Enter The 4 digit code sent to </Text>
-          <View style={styles.confirm}>
-            <TextInput style={styles.confimInput} />
-            <TextInput style={styles.confimInput} />
-            <TextInput style={styles.confimInput} />
-            <TextInput style={styles.confimInput} />
-          </View>
-          <View >
-            <View>
-                <TouchableHighlight style={styles.button}
-                onPress={() => navigate('LandingPage', {name: 'Jane'})}>
-                    <Text style={styles.buttonText}> Next </Text>
-                </TouchableHighlight>
-                
+      <ImageBackground source={require('../assets/building.png')} style={styles.container}>
+          <View style={styles.buttonbg}>
+            <Text style={styles.confimMsg} >Enter The 4 digit code sent to </Text>
+            <View style={styles.confirm}>
+                <TextInput style={styles.confimInput} />
+                <TextInput style={styles.confimInput} />
+                <TextInput style={styles.confimInput} />
+                <TextInput style={styles.confimInput} />
             </View>
-            
-            <TouchableHighlight style={styles.resend}>
-                    <Text>Resend Code </Text>
+            <View >
+                <View>
+                    <TouchableHighlight style={styles.button}
+                    onPress={() => navigate('LocationServices', {name: 'Jane'})}>
+                        <Text style={styles.buttonText}> Next </Text>
+                    </TouchableHighlight>
+                    
+                </View>
+                
+                <TouchableHighlight style={styles.resend}>
+                    <Text style={styles.resend}>Resend Code </Text>
                 </TouchableHighlight>
-          </View>
-      </View>
+            </View>
+        </View>
+      </ImageBackground>
     );
   }
 };
@@ -38,7 +41,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent : "center",
         flexDirection: "column",
-        height : "100%"
+        height : "100%",
+        width : "100%",
         
       },
     main : {
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
     },
     confimMsg :{
         marginTop : 64,
-        color : "red",
+        color : "black",
         textAlign : "center",
         fontWeight : "600",
         fontSize : 18
@@ -72,6 +76,13 @@ const styles = StyleSheet.create({
         fontSize : 32,
         fontWeight  : "600",
         margin : 16
+    },
+    buttonbg: {
+        backgroundColor: '#ffffffe3',
+        width: (Dimensions.get('window').width/10*9),
+        display:"flex",
+        backgroundColor: '#fff',
+        padding : 16
     },
     socailIcon: {
         height : 32,
@@ -92,7 +103,9 @@ const styles = StyleSheet.create({
         alignItems  : "center",
         padding : 8,
         borderRadius : 4,
-        marginTop : 16
+        marginTop : 16,
+        marginBottom : 16,
+        alignSelf : "stretch"
         
     },
     buttonText : {
@@ -105,6 +118,7 @@ const styles = StyleSheet.create({
     resend:{
         color : "red",
         fontWeight : "600",
-        textAlign : "center"
+        textAlign : "center",
+        
     }
 });

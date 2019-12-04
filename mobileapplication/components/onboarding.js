@@ -7,7 +7,7 @@ export default class Onboarding extends React.Component {
         title: 'Welcome',
       };
   render (){
-    // const {navigate} = this.props.navigation;
+    const {navigate} = this.props.navigation;
     return (
     <View style={styles.container}>
       <View style={styles.brand}>
@@ -15,15 +15,17 @@ export default class Onboarding extends React.Component {
         <Text style={styles.brandText}>Spaceful</Text>
       </View>
       <View style={styles.jumbotron}>
+          <Image style={styles.frontlogo} source={require('../assets/logo.png')}>
 
+
+          </Image>
       </View>
       <View style={styles.login}>
       <PhoneInput style={styles.phoneinput} placeholder="xxx-xxx-xxxx"/>
 
         <View >
             <TouchableHighlight style={styles.button}
-                // onPress={() => navigate('ConfirmPhone', {name: 'Jane'})}>
-                >
+                onPress={() => navigate('ConfirmPhone', {name: 'Jane'})}>
             <Text style={styles.buttonText}>
               Next
             </Text >
@@ -105,7 +107,7 @@ const styles = StyleSheet.create({
     backgroundColor : "gray",
     marginLeft : 16,
     marginRight : 16
-
+    
   },
   button : {
     backgroundColor : "red",
@@ -124,5 +126,10 @@ buttonText : {
     textAlign : "center",
     fontSize : 32,fontWeight : "600"
     
+},
+frontlogo : {
+  width: 200,
+  height:200,
 }
+
 });

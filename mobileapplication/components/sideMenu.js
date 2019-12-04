@@ -93,19 +93,7 @@ export default class SideNav extends Component {
                     </View>
                 </TouchableHighlight>
                 {this.props.children}
-                <TouchableHighlight onPress={()=>this.toggle(true)}>
-                    <View style={styles.navListItem}>
-                    <Text
-                        style={styles.navListLabel}
-                    >
-                        Account
-                    </Text>
-                    <Image
-                        style={styles.chevron}
-                        source = {require('../assets/icons/right-chevron.png')}
-                    />
-                    </View>    
-                </TouchableHighlight>
+                
                 <TouchableHighlight onPress={()=>this.toggle(true)}>
                     <View style={styles.navListItem}>
                     <Text
