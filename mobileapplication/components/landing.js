@@ -17,13 +17,16 @@ export default class LandingPage extends Component {
                 message : "Swipe left To start looking"   
             },
             {
-            title : "first",
+            title : "Cauliflower Tower",
+            image : require('../assets/locations/telus_sky/TelusSky.jpg'),
             latLong : {
                 latitude: 51.0447,
                 longitude: -114.0719,
               }
-        },{
-            title : "second" ,
+        },
+        {
+            title : "RBC Building" ,
+            image : require('../assets/locations/rbc/rbc_outside.jpeg'),
             latLong : {
                 latitude: 51.03,
                 longitude: -114.078,
@@ -31,7 +34,8 @@ export default class LandingPage extends Component {
                 longitudeDelta: 0.0421 / 100,
               }
         },{
-            title : "third",
+            title : "9th Avenue Place",
+            image : require('../assets/locations/9th_avenue/9th_place_outside.jpeg'),
             latLong : {
                 latitude: 51.045,
                 longitude: -114.085,
@@ -105,7 +109,6 @@ export default class LandingPage extends Component {
         </TouchableHighlight>
     </SideMenu>
     );
-    
     return (
         <View style={styles.container}>
         {menu}
@@ -135,10 +138,9 @@ export default class LandingPage extends Component {
                         return(
                             <TouchableHighlight onPress={() => navigate('LocationListing', {item : item})}>
                                 <View style={styles.sliderItem}>
-                                    <Image  source={require('../assets/cubical.jpg')} style={styles.sliderItemImage} />
-                                    <View  style={{flexDirection : "row"}}>
+                                    <Image source={item.image} style={styles.sliderItemImage} />
+                                    <View  style={{flexDirection : "row", alignItems: "center", justifyContent: "center"}}>
                                         <Text style={styles.sliderItemText}>{ item.title }</Text>
-                                        <Text style={styles.sliderSubText}>$15</Text>
                                     </View>
                                 </View>
                             </TouchableHighlight>
@@ -206,11 +208,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover'     
     },
     sliderItemText : {
-        margin: 8,
-        paddingLeft : 8,
         fontSize : 16,
-        flexGrow : 1
-
     },
     sliderSubText :{
         fontSize : 12,

@@ -81,21 +81,6 @@ export default class SideNav extends Component {
                 <Text style={styles.name}> First Last</Text>
             </View>
             <View style={styles.navList}>
-                
-                <TouchableHighlight onPress={()=>this.toggle(true)}>
-                    <View style={styles.navListItem}>
-                    <Text
-                        style={styles.navListLabel}
-                    >
-                        Search Spaces
-                    </Text>
-                    <Image
-                        style={styles.chevron}
-                        source = {require('../assets/icons/right-chevron.png')}
-                    />
-                    </View>
-                    
-                </TouchableHighlight>
                 <TouchableHighlight onPress={()=>this.toggle(true)}>
                     <View style={styles.navListItem}>
                     <Text style={styles.navListLabel}>
@@ -170,7 +155,7 @@ const styles = StyleSheet.create({
         width : 280,
         position : "relative",
         top : 0,
-        left : -280,
+        left : 0,
         backgroundColor :"white",
         elevation : 4
     },

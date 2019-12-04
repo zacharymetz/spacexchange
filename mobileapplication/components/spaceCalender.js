@@ -10,6 +10,7 @@ export default class SpaceCalender extends Component {
     onChange = date => this.setState({ date })
 
     render(){
+        const {navigate} = this.props.navigation;
         return(
             <View style={styles.full_screen}>
                 <Image style={styles.header_image} source={require('../assets/cubical.jpg')}/>
@@ -26,14 +27,15 @@ export default class SpaceCalender extends Component {
                         Reviews:
                     </Text>
                     <Text style={styles.paragraph}>
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
-                        This place is fuckn shit. This place is fuckn shit. This place is fuckn shit. This place is fuckn shit.
+                    It’s difficult to beat the convenience of viewing a company’s location, 
+                    hours, phone number, and reviews all in one place. That’s likely why Google
+                     reviews are one of the most popular and reliable forms of customer feedback.
+                      So how do you leave a Google review?When you want to find ice cream near you, 
+                      where do you search? On Google. When you find that ice cream shop, what do 
+                      you look at next? How many stars they have, what customers are saying about 
+                      their experience there, and if they have positive reviews. If they have bad 
+                      reviews you’re likely to move on and try to find something better. 
+                      That’s the power of Google reviews.
                     </Text>
                 </View>
                 <View style={styles.rating_stars}>
@@ -45,7 +47,7 @@ export default class SpaceCalender extends Component {
                 </View>
                 
                 <View style={styles.white_space} />
-                <TouchableHighlight>
+                <TouchableHighlight onPress={() => navigate('LandingPage')}>
                     <View style={styles.add_cart}>
                         <Text style={styles.add_cart_text}>
                             Add to cart
@@ -100,13 +102,13 @@ const styles = StyleSheet.create({
     },
     add_cart: {
         height: 75,
+        margin: 20,
         padding: 16,
         backgroundColor: "blue",
         justifyContent: "center",
         alignItems: "center"
     },
     add_cart_text: {
-
         color: "white",
         fontSize: 20
     }

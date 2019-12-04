@@ -8,11 +8,11 @@ export default class LocationListing extends Component {
         super(props);
         this.state = {
             entries : [{
-
+                image : require('../assets/locations/rbc/rbc_foodcourt.jpeg'),
             },{
-
+                image : require('../assets/locations/rbc/ping-pong.jpeg'),
             },{
-
+                image : require('../assets/locations/rbc/rbc_inside_2.jpeg'),
             }]
         };
     }
@@ -51,7 +51,7 @@ export default class LocationListing extends Component {
             <View >
                 
                 <View style={styles.headerWrap}>
-                <Text style={styles.headerTitle}>Space Name</Text>
+                <Text style={styles.headerTitle}>Cauliflower Tower</Text>
                 <Text>123 Fake Street, Calgary Alberta</Text>
                 </View>
             </View>
@@ -106,14 +106,14 @@ export default class LocationListing extends Component {
                         </View>
                     </TouchableHighlight>
                     <View style={styles.listItem}>
-                        <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
+                        <Image source={require('../assets/spaces/office_space.jpg')} style={styles.listImage} resizeMode="cover"/>
                         <View style={styles.listItemContent}>
                             <Text style={styles.listItemTitle}>Private Office</Text>
                             <Text style={styles.listItemSubText}>$30 / Day</Text>
                         </View>
                     </View>
                     <View style={styles.listItem}>
-                        <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
+                        <Image source={require('../assets/spaces/board_room.jpeg')} style={styles.listImage} resizeMode="cover"/>
                         <View style={styles.listItemContent}>
                             <Text style={styles.listItemTitle}>Boardroom</Text>
                             <Text style={styles.listItemSubText}>$20 / hour</Text>
@@ -126,53 +126,21 @@ export default class LocationListing extends Component {
             <View style={styles.section}>
                 <Text style={styles.title}>Media</Text>
             </View>
-                <Carousel style={styles.mediaCarousel}
+            <Carousel style={styles.mediaCarousel}
                     data={this.state.entries}
                     renderItem={({item, index})=>{
-                        return (<View style={styles.mediaCard}>
-                            <Text>asdasd</Text>
+                        return (
+                        <View>
+                            <Image style={styles.cardImage} source={item.image} resizeMode="cover"/>
                         </View>)
                     }}
                     sliderWidth={Dimensions.get('window').width}
                     itemWidth={Dimensions.get('window').width/1.3}
-                    />
-
-         
-            
+            />
             <View style={styles.section}>
                 <View style={{display : "flex", flexDirection : "row"}}>
                     <Text style={styles.title}>Reviews</Text>
-                    <View style={{display : "flex", flexDirection : "row", flexGrow: 1, justifyContent : "flex-end"}}>
-                        <Image style={styles.reviewStar} source={require('../assets/starempty.png')} />
-                        <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                        <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                        <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                        <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                    </View>
                 </View>   
-                <View style={styles.reviewSummary}>
-                    <View style={styles.reviewSummaryItem}>
-                        <Text style={styles.reviewSummaryItemText}>Category</Text>
-                        <View style={{display : "flex", flexDirection : "row", flexGrow: 1, justifyContent : "flex-end"}}>
-                            <Image style={styles.reviewStar} source={require('../assets/starempty.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                        </View>
-                    </View>
-
-                    <View style={styles.reviewSummaryItem}>
-                        <Text style={styles.reviewSummaryItemText}>Category</Text>
-                        <View style={{display : "flex", flexDirection : "row", flexGrow: 1, justifyContent : "flex-end"}}>
-                            <Image style={styles.reviewStar} source={require('../assets/starempty.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                            <Image style={styles.reviewStar} source={require('../assets/star.png')} />
-                        </View>
-                    </View>
-                </View>
                 <View style={styles.reviewList}>
                     <View style={styles.review}>
                         <View style={{display : "flex", flexDirection : "row"}}>
@@ -188,9 +156,6 @@ export default class LocationListing extends Component {
                     <Text>There might be something wrong with the coffee make ? I'm Not so sure it could honestly be aything so why not go for it </Text>
                     </View>
                 </View>
-                <TouchableHighlight>
-                    <Text  style={{textAlign : "center",marginTop:16}}> More Reviews </Text>
-                </TouchableHighlight>
             </View>
             <View style={styles.section}>
                 <Text style={styles.title}>About Landlord</Text>
@@ -324,13 +289,12 @@ const styles = StyleSheet.create({
       ItemListSubText : {
             textAlign : "right"
       },
-      mediaCard : {
-        backgroundColor : "black",
-        height :Dimensions.get('window').width/1.3 ,
-        marginTop : 10
-      },
       mediaCarousel: {
         height : (Dimensions.get('window').width/1.3) + 20
+      },
+      cardImage: {
+          height: (Dimensions.get('window').width/1.3),
+          width: (Dimensions.get('window').width/1.3),
       }
     }
 )
