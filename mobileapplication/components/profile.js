@@ -23,11 +23,13 @@ export default class Profile extends Component {
     }
     
   render(){
+    const {navigate} = this.props.navigation;
+
     var {firstname} = this.state;
     var {lastname} = this.state;
     var {email} = this.state;
     var {biography} = this.state;
-    
+
     var picture = null;
     let pictureContent ;
 
@@ -41,6 +43,11 @@ export default class Profile extends Component {
 
     return (
         <View style={styles.container}>
+            <View style={styles.back}>
+                <TouchableHighlight style={styles.button} onPress={() => navigate('LoginRegister')}>
+                    <Text style={styles.buttonText}> Logout </Text>
+                </TouchableHighlight>
+            </View>
             <View style={styles.topsection}>
                 <View style={styles.topleft}>
                     <View style={styles.picture}>
@@ -53,7 +60,7 @@ export default class Profile extends Component {
                     </Text>
                     <Text>
                         Last Name:
-                    </Text>
+                    </Text> 
                     <Text>
                         Email:
                     </Text>
@@ -127,95 +134,23 @@ const styles = StyleSheet.create({
 
     },
     pictureContent: {
-        justifyContent: "center",
-        alignContent: "center",
-        flexDirection: "column",
+        marginTop:10,
+        marginLeft: 10,
         display: "flex",
         fontSize: 46,
         color: "white",
     },
-    map: {
-        flex : 1,
-        height : Dimensions.get('window').height,
-        width: Dimensions.get('window').width,
-        
-        
-    },
-    slider: {
-        height : 200,
-        position : "absolute",
-        bottom : 0,
-        left :0
-    },
-    sliderItem: {
-        marginTop : 10,
-        height : 180,
-        display : "flex",
-        flexDirection : "column",
-        shadowOpacity: 0.75,
-        shadowRadius: 1,
-        shadowColor: 'black',
-        shadowOffset: { height: 0, width: 0 },
-        borderRadius : 5,
-        elevation  :1,
-        backgroundColor : "white"
-    },
-    sliderItemImage: {
-        flexGrow : 1,
-        flex : 1,
-        width: null,
-    height: null,
-    resizeMode: 'cover'
-        
-    },
-    sliderItemText: {
-        margin: 8,
-        paddingLeft : 8,
-        fontSize : 16,
-        flexGrow : 1
-
-    },
-    sliderSubText: {
-        fontSize : 12,
-        color : "gray",
-        margin: 8,
-    },
-
-    confirm: {
-        display : "flex",
-        flexDirection : "row",
-        justifyContent : "center",
-        alignItems : "center",
-        
-    },
-
-    confimInput :{
-        borderBottomColor : "black",
-        borderBottomWidth : 2,
-        fontSize : 32,
-        fontWeight  : "600",
-        margin : 16
-    },
-    socailIcon: {
-        height : 32,
-        width : 32
-    },
-    loginText: {
-        color : "white",
-        flexGrow : 1,
-        textAlign : "center",
-        fontSize : 18
-        
-    },
     button : {
-        backgroundColor : "red",
+        backgroundColor : "#2a2e2b",
         width : "100%",
         display : "flex",
         flexDirection : "row",
         alignItems  : "center",
         padding : 8,
         borderRadius : 4,
-        marginTop : 16
+        marginTop : 16,
+        marginBottom : 16,
+        alignSelf : "stretch"
         
     },
     buttonText : {
@@ -225,9 +160,4 @@ const styles = StyleSheet.create({
         fontSize : 32,fontWeight : "600"
         
     },
-    resend:{
-        color : "red",
-        fontWeight : "600",
-        textAlign : "center"
-    }
 });

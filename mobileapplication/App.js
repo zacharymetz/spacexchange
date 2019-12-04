@@ -4,25 +4,48 @@ import onboarding from './components/onboarding';
 import ConfirmPhone from './components/confirmPhone';
 import LandingPage from './components/landing';
 import LocationListing from './components/location';
+import SideMenu from './components/sideMenu';
+import ShoppingCart from './components/shoppingCart';
 import auth from '@react-native-firebase/auth';
+import ConfirmCart from './components/confirmCart';
 import { firebase } from '@react-native-firebase/auth';
 import React, { useState, useEffect } from 'react';
 import {View, Text} from 'react-native';
+import SpaceCalender from './components/spaceCalender';
+import SearchScreen from './components/searchScreen';
+import TransactionsSummary from './components/transactionsSummary';
+import SpecificTransaction from './components/specificTransaction';
+import LocationServices from './components/locationservices';
 import Profile from './components/profile';
+import LoginRegister from './components/loginregister';
+import Login from './components/login';
+import Register from './components/register';
 
-//  we should do something and then 
+//  we should do something and then
 //  decied weathe r to send them to onboarding
-//  or juts let them in cuz it just goes to the 
-//  first page on the list 
+//  or juts let them in cuz it just goes to the
+//  first page on the list
 const MainNavigator = createStackNavigator({
-	LandingPage : {screen :LandingPage},
-	LocationListing : {screen: LocationListing},
+  LoginRegister: {screen: LoginRegister},
+  Login: {screen: Login},
+  Register: {screen: Register},
   OnBoarding: {screen: onboarding},
-  
-  
+  LocationServices: {screen: LocationServices},
+  LandingPage : {screen: LandingPage},
+  TransactionsSummary: {screen: TransactionsSummary},
+  SpecificTransaction: {screen: SpecificTransaction},
+  SearchScreen: {screen: SearchScreen},
+  ConfirmCart: {screen: ConfirmCart},
+	LocationListing : {screen: LocationListing},
   
   ConfirmPhone: {screen: ConfirmPhone},
-  EnableNotifications: {screen: ConfirmPhone}
+  EnableNotifications: {screen: ConfirmPhone},
+
+  SideMenu: {screen: SideMenu},
+  
+  SpaceCalender: {screen: SpaceCalender},
+  ShoppingCart: {screen: ShoppingCart},
+  Profile: {screen: Profile},
 },{
   headerMode: 'none',
   navigationOptions: {
@@ -50,18 +73,15 @@ function App() {
  
   if (initilizing) return null;
  
-  if (!user) {
-    return <Profile/>;
-
-  }
+  
  
   return (
     <View>
-      <Text>Welcome {user.email}</Text>
+      <Text>Welcome </Text>
     </View>
   );
 }
 
 
 
-export default App;
+export default Nav;
