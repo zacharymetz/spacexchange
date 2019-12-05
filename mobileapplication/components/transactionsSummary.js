@@ -10,8 +10,8 @@ export default class TransactionsSummary extends Component {
         return(
             <View style={styles.full_screen}>
                 <View style={styles.header}>
-                    <Text style={fontSize= 14}>
-                        Transactions
+                    <Text style={styles.textStyles}>
+                        Past Transactions
                     </Text>
                 </View>
 
@@ -20,8 +20,8 @@ export default class TransactionsSummary extends Component {
                     <TouchableHighlight onPress={() => navigate('SpecificTransaction')}>
                         <View style={styles.listItem}>
                             <View>
-                                <Text>Cauliflower Tower</Text>
-                                <Text>November 26, 2019</Text>
+                                <Text style={styles.textStyles}>Cauliflower Tower</Text>
+                                <Text style={styles.textStyles}>November 26, 2019</Text>
                             </View> 
                             <View style={styles.white_space} />
                             <Text style={styles.listPrice}>$220</Text>
@@ -30,8 +30,8 @@ export default class TransactionsSummary extends Component {
                     <TouchableHighlight>
                         <View style={styles.listItem}>
                             <View>
-                                <Text>RBC Building</Text>
-                                <Text>November 26, 2019</Text>
+                                <Text style={styles.textStyles}>RBC Building</Text>
+                                <Text style={styles.textStyles}>November 26, 2019</Text>
                             </View> 
                             <View style={styles.white_space} />
                             <Text style={styles.listPrice}>$150</Text>
@@ -40,8 +40,8 @@ export default class TransactionsSummary extends Component {
                     <TouchableHighlight>
                         <View style={styles.listItem}>
                             <View>
-                                <Text>9th Avenue Place</Text>
-                                <Text>November 26, 2019</Text>
+                                <Text style={styles.textStyles}>9th Avenue Place</Text>
+                                <Text style={styles.textStyles}>November 26, 2019</Text>
                             </View>
                             <View style={styles.white_space} />
                             <Text style={styles.listPrice}>$300</Text>
@@ -61,13 +61,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomWidth: 2,
         padding: 10,
-        borderBottomColor: "black"
+        borderBottomColor: "black",
+        fontSize: 20
     },
     full_screen: {
         display: "flex",
         flexDirection: "column",
         height : Dimensions.get('window').height,
-        width : Dimensions.get('window').width
+        width : Dimensions.get('window').width,
+        fontSize: 20
     },
     white_space: {
         flexGrow: 1
@@ -77,17 +79,24 @@ const styles = StyleSheet.create({
         flexDirection : "column",
         width : Dimensions.get('window').width,
         borderTopWidth : 2,
-        borderTopColor : "black"
+        borderTopColor : "black",
+        fontSize: 20
     },
     listItem: {
         borderBottomWidth : 2,
         borderBottomColor : "black",
         display : "flex",
         flexDirection : "row",
-        padding: 5
+        padding: 5,
+        fontSize: 20
     },
     listPrice: {
-        padding: 7
+        padding: 7,
+        fontSize: 20
+    },
+    textStyles: {
+        fontSize: 18,
+        margin: 2
     }
 });
   

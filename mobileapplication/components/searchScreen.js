@@ -29,7 +29,8 @@ export default class SearchScreen extends Component {
                         onChangeText={this.updateSearch}
                         value={search}
                     />
-                    <DropdownMenu
+                </View>
+                <DropdownMenu
                     style={styles.dropDown}
                     bgColor={'white'}
                     tintColor={'#666666'}
@@ -37,9 +38,8 @@ export default class SearchScreen extends Component {
                     handler={(selection, row) => this.setState({text: data[selection][row]})}
                     data={data}
                     >
-                    </DropdownMenu>  
-                </View>  
-                <View>
+                    </DropdownMenu>    
+                <View style={styles.searchResults}>
                     <TouchableHighlight onPress={()=>navigate('SpaceCalender')}>   
                         <View style={styles.listItem}>
                             <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
         paddingTop: 40
     },
     dropDown: {
-        margin:5
+        margin:5,
+        position: "absolute"
     },
     amenitiesHeader: {
         display: "flex",
@@ -130,5 +131,8 @@ const styles = StyleSheet.create({
       ItemListSubText : {
             textAlign : "right"
       },
+      searchResults: {
+        marginTop: 50
+      }
 });
   
