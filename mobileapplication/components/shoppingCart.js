@@ -1,4 +1,4 @@
-import React, {Component, useState, useEffect} from 'react'
+import React, {Component, useState, useEffec} from 'react'
 import { Text, View, StyleSheet, TouchableHighlight, Dimensions, Image } from 'react-native';
 
 export default class ShoppingCart extends Component {
@@ -21,32 +21,35 @@ export default class ShoppingCart extends Component {
                     </Text>
                 </View>
 
-                <View style={styles.list}>  
-                        <View style={styles.listItem}>
-                            <View>
-                                <Text>Cubical</Text>
-                                <Text>$15 / Day</Text>
-                            </View> 
-                        </View>
-                    <View style={styles.listItem}>
-                        <View>
-                            <Text>Private Office</Text>
-                            <Text>$30 / Day</Text>
-                        </View>
+                <View style={styles.listItem}>
+                    <Image source={require('../assets/cubical.jpg')} style={styles.listImage} resizeMode="cover"/>
+                    <View style={styles.listItemContent}>
+                        <Text style={styles.listItemTitle}>Cubical</Text>
+                        <Text style={styles.listItemSubText}>January 5th, 2020</Text>
+                        <Text style={styles.listItemSubText}>$15/day</Text>
+                        <TouchableHighlight style={styles.cancelButton} onPress={() => navigate('CancelBooking')}><Text style={{color: "white", textAlign: "center",}}>Cancel Booking</Text></TouchableHighlight>
                     </View>
-                    <View style={styles.listItem}>
-                        <View>
-                            <Text>Boardroom</Text>
-                            <Text>$20 / hour</Text>
-                        </View>
-                    </View>
+                    
                 </View>
                 <View style={styles.listItem}>
-                        <Image source={require('../assets/spaces/board_room.jpeg')} style={styles.listImage} resizeMode="cover"/>
-                        <View style={styles.listItemContent}>
-                            <Text style={styles.listItemTitle}>Boardroom</Text>
-                            <Text style={styles.listItemSubText}>$20 / hour</Text>
-                        </View>
+                    <Image source={require('../assets/spaces/office_space.jpg')} style={styles.listImage} resizeMode="cover"/>
+                    <View style={styles.listItemContent}>
+                        <Text style={styles.listItemTitle}>Private Office</Text>
+                        <Text style={styles.listItemSubText}>January 16th, 2020</Text>
+                        <Text style={styles.listItemSubText}>$30/day</Text>
+                        <TouchableHighlight style={styles.cancelButton} onPress={() => navigate('CancelBooking')}><Text style={{color: "white", textAlign: "center",}}>Cancel Booking</Text></TouchableHighlight>
+                    </View>
+                    
+                </View>
+                <View style={styles.listItem}>
+                    <Image source={require('../assets/spaces/board_room.jpeg')} style={styles.listImage} resizeMode="cover"/>
+                    <View style={styles.listItemContent}>
+                        <Text style={styles.listItemTitle}>Boardroom</Text>
+                        <Text style={styles.listItemSubText}>January 20th, 2020</Text>
+                        <Text style={styles.listItemSubText}>$20/hour</Text>
+                        <TouchableHighlight style={styles.cancelButton} onPress={() => navigate('CancelBooking')}><Text style={{color: "white", textAlign: "center",}}>Cancel Booking</Text></TouchableHighlight>
+                    </View>
+                    
                 </View>
 
                 <View style={styles.white_space} />
@@ -92,6 +95,21 @@ const styles = StyleSheet.create({
         flexDirection : "row",
         padding: 5
     },
+    listImage: {
+        width:"50%",
+        maxHeight: 200,
+    },
+    listItemContent:{
+        marginLeft:  15,
+    },
+    listItemTitle: {
+        fontSize: 25,
+    },
+    listItemSubText:{
+        marginLeft: 15,
+        marginTop: 5
+        
+    },
     white_space: {
         flexGrow: 1
     },
@@ -106,6 +124,17 @@ const styles = StyleSheet.create({
 
         color: "white",
         fontSize: 20
+    },
+    cancelButton: {
+        backgroundColor: "red",
+        padding: 15,
+        fontSize: 20,
+        borderRadius: 5,
+        marginTop: "auto",
+        marginBottom: 0,
+        marginLeft: "auto",
+        marginRight: "auto"
+       
     }
 });
   

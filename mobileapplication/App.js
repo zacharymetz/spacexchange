@@ -21,6 +21,7 @@ import LoginRegister from './components/loginregister';
 import Login from './components/login';
 import Register from './components/register';
 import CurrentRentals from './components/currentRentals';
+import CancelBooking from './components/cancelBooking';
 
 //  we should do something and then
 //  decied weathe r to send them to onboarding
@@ -45,6 +46,8 @@ const MainNavigator = createStackNavigator({
   SideMenu: {screen: SideMenu},
   ShoppingCart: {screen: ShoppingCart},
   Profile: {screen: Profile},
+  CancelBooking: {screen: CancelBooking},
+
 },{
   headerMode: 'none',
   navigationOptions: {
