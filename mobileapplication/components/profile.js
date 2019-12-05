@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View,Dimensions, Image,TextInput, TouchableHighlight ,Platform} from 'react-native';
+import { StyleSheet, Text, View,Dimensions, Image,TextInput, TouchableHighlight ,Platform, SafeAreaView, ScrollView} from 'react-native';
 import SideNav from './sideMenu';
+import { CreditCardInput, LiteCreditCardInput } from "react-native-credit-card-input";
 
 export default class Profile extends Component {
     constructor(props) {
@@ -38,46 +39,49 @@ export default class Profile extends Component {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.topsection}>
-                <View style={styles.topleft}>
-                    <View style={styles.picture}>
-                        {pictureContent}
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scrollView}>
+                <View style={styles.topsection}>
+                    <View style={styles.topleft}>
+                        <View style={styles.picture}>
+                            {pictureContent}
+                            
+                        </View>
+                    </View>
+                    <View style={styles.topright}>
+                        
+                        <View style={styles.topleftprofile}>
+                            <Text>
+                                {firstname}
+                            </Text>
+                            <Text>
+                                {lastname}
+                            </Text> 
+                            <Text>
+                               {email}
+                            </Text>
+                        </View>
+                        
                     </View>
                 </View>
-                <View style={styles.topleftprofile}>
-                    <Text>
-                        First Name:
-                    </Text>
-                    <Text>
-                        Last Name:
-                    </Text> 
-                    <Text>
-                        Email:
-                    </Text>
+                <CreditCardInput onChange={this._onChange} />
+                <View style={styles.bottomsection}>
+                    <Text style={styles.biographyTitle}>Biography:</Text>
+                    <Text style={styles.value}>{biography}</Text>
+                </View>    
+
+            
+                
+                    
+                    
+
+                <View style={styles.back}>
+                    <TouchableHighlight style={styles.button} onPress={() => navigate('LoginRegister')}>
+                        <Text style={styles.buttonText}> Logout </Text>
+                    </TouchableHighlight>
                 </View>
-                <View style={styles.toprightprofile}>
-                    <Text style={styles.value}>
-                        {firstname}
-                    </Text>
-                    <Text style={styles.value}>
-                        {lastname}
-                    </Text>
-                    <Text style={styles.value}>
-                        {email}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.bottomsection}>
-                <Text style={styles.biographyTitle}>Biography:</Text>
-                <Text style={styles.value}>{biography}</Text>
-            </View>    
-            <View style={styles.back}>
-                <TouchableHighlight style={styles.button} onPress={() => navigate('LoginRegister')}>
-                    <Text style={styles.buttonText}> Logout </Text>
-                </TouchableHighlight>
-            </View>
-        </View>
+            </ScrollView>
+        </SafeAreaView>
     );
   }
 };
@@ -89,12 +93,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         flexDirection: "column",
+        overflow: 'scroll',
     },
     topsection: {
         flexDirection: "row",
         height: "20%",
         width: "100%",
-        marginTop: '40%',
+        
     },
     topleft: {
         width: "33%",
@@ -103,18 +108,31 @@ const styles = StyleSheet.create({
         alignItems: "center",
         margin: "auto",
         flexDirection : "row",
+        
 
     },
     topright: {
         width:"67%",
         display: "flex",
+        flexWrap: "nowrap",
         justifyContent: "center",
         alignContent: "center",
-        padding: 30,
+        alignItems: "flex-start",
+        minHeight:100,
         
     },
+    topleftprofile:{
+        display: "flex",
+        width:"50%",
+        flexWrap: "nowrap",
+        marginLeft: "25%"
+    },
     toprightprofile: {
-        marginLeft:30,
+        display: "flex",
+        width:"50%",
+        alignItems: "flex-start",
+
+        flexWrap: "nowrap",
     },
     bottomsection: {
         padding: 30,
@@ -145,7 +163,7 @@ const styles = StyleSheet.create({
         padding : 8,
         borderRadius : 4,
         marginTop : 16,
-        marginBottom : 16,
+        marginBottom : 160,
         alignSelf : "stretch"
         
     },
@@ -156,4 +174,12 @@ const styles = StyleSheet.create({
         fontSize : 32,fontWeight : "600"
         
     },
+    scrollView: {
+       
+        marginHorizontal: 20,
+    },
+    back: {
+        flexDirection: "row",
+        justifyContent: "center",
+    }
 });

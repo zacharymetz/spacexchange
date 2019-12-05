@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { View, StyleSheet, Text, TouchableHighlight, Dimensions} from 'react-native';
 
+
 export default class ConfirmCart extends Component {
     constructor(props){
         super(props);
@@ -30,7 +31,7 @@ export default class ConfirmCart extends Component {
                     <View style={styles.checkout_list_item}>
                         <Text>Office</Text>
                         <View style={styles.white_space}/>
-                        <Text>$60 X 3</Text>
+                        <Text>$60 X 2</Text>
                         <View style={{width : 60,display: "flex",flexDirection:"row",justifyContent:"flex-end"}}>
                         <Text>
                         120$
@@ -88,7 +89,12 @@ export default class ConfirmCart extends Component {
                         
                     </View>
                 </View>
-
+                <View>
+                    <Text style={{textAlign:"center", fontSize: 25}}>
+                        Using card with last four: 5555
+                    </Text>
+                </View>
+                
                 {/* White space to fill in middle gap */}
                 <View style={styles.white_space} />
 

@@ -5,13 +5,17 @@ export default class Login extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      value : ""
+      email : "",
+      password: ""
     }
 
   }
 
-  onChangeText(text){
-    this.setState({value : text});
+  onChangeTextEmail(text){
+    this.setState({email : text});
+  }
+  onChangeTextPass(text){
+    this.setState({password : text});
   }
 
   render() {
@@ -22,15 +26,16 @@ export default class Login extends React.Component{
         <Text style={styles.label}>Email</Text>
         <TextInput
           style={{ height: 40, width: "100%", borderColor: 'gray', borderWidth: 1 }}
-          onChangeText={text => this.onChangeText(text)}
+          onChangeText={text => this.onChangeTextEmail(text)}
           value={this.state.value}
         />
 
         <Text style={styles.label}>Password</Text>
         <TextInput
-          style={{ height: 40, width: "100%", borderColor: 'gray', borderWidth: 1 }}
-          onChangeText={text => this.onChangeText(text)}
-          value={this.state.value}
+          style={{ height: 40, width: "100%", borderColor: 'gray', borderWidth: 1,  }}
+          textContentType="password"
+          onChangeText={text => this.onChangeTextPass(text)}
+          value={this.state.password}
         />
 
         <TouchableHighlight style={styles.button} onPress={() => navigate('ConfirmPhone')}>
