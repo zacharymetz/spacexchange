@@ -1,36 +1,88 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Chart, useChartConfig } from "react-charts";
 import { withAuthorization } from "../Session";
 import { Container } from "reactstrap";
 import { ListGroup, ListGroupItem, Badge } from "reactstrap";
-import { Button, ButtonGroup } from "reactstrap";
+import {
+  Button,
+  ButtonGroup,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
+} from "reactstrap";
 import { withFirebase } from "../Firebase";
 import { compose } from "recompose";
+
+import SpaceModal from "./spaceModal";
+import AddButton from "./addModal";
+import { Link, withRouter } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
+
 const INITIAL_STATE = {
-  locations: []
+  locations: [],
+  docIDs: [],
+  spaceList: []
 };
 
 class HomePageBase extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE };
-    this.refreshState();
+    this.state.locations = JSON.parse(localStorage.getItem("data")).locations;
+    //this.refreshState();
   }
 
   refreshState() {
-    var _this = this;
-    //  get the list of locations from the db
-    const locations = this.props.firebase.firestore.collection("locations");
-    let listOfLocations = [];
-    locations.get().then(docs => {
-      docs.forEach(element => {
-        listOfLocations.push(element.data());
-      });
-      console.log(listOfLocations);
-      this.setState({ locations: listOfLocations });
-      console.log(this.state);
-    });
+    let data = this.setState({ locations: data.locations });
+
+    // var _this = this;
+    // //  get the list of space references from the db
+    // const locations = this.props.firebase.firestore.collection("locations");
+    // let listOfLocations = [];
+    // let listOfSpaces = [];
+    // let listOfIDs = [];
+    // locations.get().then(docs => {
+    //   docs.forEach(element => {
+    //     listOfLocations.push(element.data());
+    //     listOfSpaces.push([]);
+    //     for (let i in element.data().Spaces) {
+    //       console.log("Identifier", element.id);
+    //       console.log("Identifier2", element.data().Spaces[i]);
+    //       var spaces = this.props.firebase.firestore.collection("locations");
+    //       console.log("TUTORIAL", spaces.doc(element.id));
+    //       // .doc(element.id)
+    //       // .collection("Spaces")
+    //       // .doc(element.data().Spaces[i]);
+    //       spaces.get().then(dik => {
+    //         console.log("TESSSST", spaces.doc("spaces/" + element.id).data());
+    //       });
+    //       listOfSpaces[i].push();
+    //       //
+    //     }
+    //     listOfIDs.push(element.id);
+    //   });
+
+    //   //
+
+    //   //
+    //   this.setState({ locations: listOfLocations });
+    //   this.setState({ docIDs: listOfIDs });
+    // });
+    // //Get each space by reference
+    // let spaces = [];
+    // const spacess = this.props.firebase.firestore.collection("Spaces");
+    // spacess.get().then(doc => {
+    //   doc.forEach(element => {
+    //     spaces.push(element.data());
+    //     this.setState({ spaceList: spaces });
+    //   });
+    // });
+    // console.log("PRELIMENARY", spaces);
+
+    // //   }
+    // // }
+    // console.log("RESULT", this.state.spaceList);
   }
 
   render() {
@@ -39,21 +91,33 @@ class HomePageBase extends Component {
     const locations = [];
 
     for (let i in this.state.locations) {
-      let spaces = [];
+      let Spaces = [];
+      console.log("RESULTER", this.state.locations[i].spaces);
       for (let j in this.state.locations[i].spaces) {
         let element = (
           <ListGroupItem
-            tag="button"
-            action
             className="justify-content-between"
+            style={{ display: "flex" }}
           >
-            {this.state.locations[i].spaces[j].Type}{" "}
-            <Badge pill>{this.state.locations[i].spaces[j].Price}</Badge>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <h4>{this.state.locations[i].spaces[j].type}</h4>
+              <p>Location: {this.state.locations[i].spaces[j].location} </p>
+            </div>
+
+            <SpaceModal
+              label={this.state.locations[i].spaces[j].type}
+              occupancy={this.state.locations[i].spaces[j].quantity}
+              price={this.state.locations[i].spaces[j].price}
+              space={this.state.locations[i].spaces[j]}
+              id={this.state.docIDs[i]}
+              picture={this.state.locations[i].spaces[j].picture}
+            ></SpaceModal>
           </ListGroupItem>
         );
 
-        spaces.push(element);
+        Spaces.push(element);
       }
+      Spaces.push(<AddButton></AddButton>);
       let element = (
         <ListGroupItem
           style={{ background: "rgba(0,0,0,.125)" }}
@@ -65,7 +129,8 @@ class HomePageBase extends Component {
               edit
             </Button>{" "}
           </div>
-          <ListGroup>{spaces}</ListGroup>
+
+          <ListGroup>{Spaces}</ListGroup>
         </ListGroupItem>
       );
       locations.push(element);
@@ -77,10 +142,14 @@ class HomePageBase extends Component {
         <h2>Welcome Back !</h2>
         <br />
         <ButtonGroup style={{ width: "100%" }} size="lg">
-          <Button>My Rentals</Button>
-          <Button>Metrics</Button>
-          <Button>Help Sections</Button>
-          <Button tag="a" href={ROUTES.ACCOUNT}>Account</Button>
+
+          <Button tag="a" href={ROUTES.MY_RENTALS}>
+            My Rentals
+          </Button>
+          <Button tag="a" href={ROUTES.ACCT_SETTINGS}>
+            Account Settings
+          </Button>
+
         </ButtonGroup>
 
         <div
@@ -98,7 +167,6 @@ class HomePageBase extends Component {
               margin: "0 1rem"
             }}
           ></div>
-
           <div
             style={{
               border: "1px solid black",
