@@ -20,6 +20,7 @@ import Profile from './components/profile';
 import LoginRegister from './components/loginregister';
 import Login from './components/login';
 import Register from './components/register';
+import CurrentRentals from './components/currentRentals';
 
 //  we should do something and then
 //  decied weathe r to send them to onboarding
@@ -28,10 +29,11 @@ import Register from './components/register';
 const MainNavigator = createStackNavigator({
   LandingPage : {screen: LandingPage},
   LoginRegister: {screen: LoginRegister},
+  CurrentRentals: {screen: CurrentRentals},
+  SpaceCalender: {screen: SpaceCalender},
   Login: {screen: Login},
   Register: {screen: Register},
   OnBoarding: {screen: onboarding},
-  SpaceCalender: {screen: SpaceCalender},
   LocationServices: {screen: LocationServices},
   TransactionsSummary: {screen: TransactionsSummary},
   SpecificTransaction: {screen: SpecificTransaction},
@@ -65,13 +67,10 @@ function App() {
  
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    return subscriber; //unsubscribe on unmount
   }, []);
  
   if (initilizing) return null;
- 
-  
- 
   return (
     <View>
       <Text>Welcome </Text>

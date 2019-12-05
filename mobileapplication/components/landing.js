@@ -99,6 +99,12 @@ export default class LandingPage extends Component {
 
     const menu = (
     <SideMenu>
+        <TouchableHighlight onPress={() => navigate('CurrentRentals')}>
+            <View style={styles.navListItem}>
+                <Text style={styles.navListLabel}>Current Rentals</Text>
+                <Image style={styles.chevron} source = {require('../assets/icons/right-chevron.png')}/>
+            </View>
+         </TouchableHighlight>
          <TouchableHighlight onPress={() => navigate('TransactionsSummary')}>
             <View style={styles.navListItem}>
             <Text style={styles.navListLabel}>
@@ -231,7 +237,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover'     
     },
     sliderItemText : {
-        fontSize : 16,
+        fontSize : 18,
     },
     sliderSubText :{
         fontSize : 12,

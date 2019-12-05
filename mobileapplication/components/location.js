@@ -272,8 +272,7 @@ const styles = StyleSheet.create({
         flexGrow : 1,
         padding: 8,
         alignItems : "flex-end",
-        justifyContent : "flex-start",
-        
+        justifyContent : "flex-start", 
         flexDirection : "row",
         borderLeftWidth : 2,
         borderLeftColor : "black"

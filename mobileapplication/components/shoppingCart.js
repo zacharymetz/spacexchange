@@ -41,6 +41,13 @@ export default class ShoppingCart extends Component {
                         </View>
                     </View>
                 </View>
+                <View style={styles.listItem}>
+                        <Image source={require('../assets/spaces/board_room.jpeg')} style={styles.listImage} resizeMode="cover"/>
+                        <View style={styles.listItemContent}>
+                            <Text style={styles.listItemTitle}>Boardroom</Text>
+                            <Text style={styles.listItemSubText}>$20 / hour</Text>
+                        </View>
+                </View>
 
                 <View style={styles.white_space} />
                 <TouchableHighlight onPress={() => navigate('ConfirmCart')}>

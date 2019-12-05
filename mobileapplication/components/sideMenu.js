@@ -81,17 +81,6 @@ export default class SideNav extends Component {
                 <Text style={styles.name}>Danny Metz</Text>
             </View>
             <View style={styles.navList}>
-                <TouchableHighlight onPress={()=>this.toggle(true)}>
-                    <View style={styles.navListItem}>
-                    <Text style={styles.navListLabel}>
-                        Current Rentals
-                    </Text>
-                    <Image
-                        style={styles.chevron}
-                        source = {require('../assets/icons/right-chevron.png')}
-                    />
-                    </View>
-                </TouchableHighlight>
                 {this.props.children}
                 
                 <TouchableHighlight onPress={()=>this.toggle(true)}>

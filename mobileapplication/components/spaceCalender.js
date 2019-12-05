@@ -24,40 +24,11 @@ export default class SpaceCalender extends Component {
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.container}>
                     
-                        <Image style={styles.header_image} source={require('../assets/cubical.jpg')}/>
-                        <View style={styles.description_view}>
-                            <Text style={styles.all_text}>
-                                Description:
-                            </Text>
-                            <Text style={styles.paragraph}>
-                                This cubical is a very nice cubical.
-                            </Text>
-                    </View>
+                    <Image style={styles.header_image} source={require('../assets/cubical.jpg')}/>
 
                     {/* Add Calander here*/}
                     <View style={styles.calendar}>
-                        <CalendarPicker
-                        onDateChange={this.onDateChange}
-                        />
-                    </View>
-                    <View>
-                        <View>
-                            <Text style={styles.all_text}>
-                                Reviews:
-                            </Text>
-                            <Text style={styles.paragraph}>
-                            It’s difficult to beat the convenience of viewing a company’s location, 
-                            hours, phone number, and reviews all in one place. That’s likely why Google
-                            reviews are one of the most popular and reliable forms of customer feedback.
-                            </Text>
-                        </View>
-                        <View style={styles.rating_stars}>
-                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                            <Image style={styles.star} source={require('../assets/starempty.png')}/>
-                            <Image style={styles.star} source={require('../assets/star.png')} />
-                        </View>
+                        <CalendarPicker onDateChange={this.onDateChange}/>
                     </View>
                     
                     <TouchableHighlight onPress={() => navigate('LandingPage')}>
@@ -83,6 +54,7 @@ const styles = StyleSheet.create({
         height : "100%"
       },
     all_text: {
+        marginTop: -50,
         fontSize: 18,
     },
     description_view: {
@@ -113,8 +85,9 @@ const styles = StyleSheet.create({
     },
     add_cart: {
         height: 75,
-        margin: 20,
-        padding: 16,
+        marginTop: -30,
+        marginLeft: 20,
+        marginRight: 20,
         backgroundColor: "blue",
         justifyContent: "center",
         alignItems: "center"
