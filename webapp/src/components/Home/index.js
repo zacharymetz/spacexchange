@@ -15,66 +15,106 @@ import { withFirebase } from "../Firebase";
 import { compose } from "recompose";
 import SpaceModal from "./spaceModal";
 import AddButton from "./addModal";
+import { Link, withRouter } from "react-router-dom";
+import * as ROUTES from "../../constants/routes";
 
 const INITIAL_STATE = {
   locations: [],
-  docIDs: []
+  docIDs: [],
+  spaceList: []
 };
 
 class HomePageBase extends Component {
   constructor(props) {
     super(props);
     this.state = { ...INITIAL_STATE };
-    this.refreshState();
+    this.state.locations = JSON.parse(localStorage.getItem("data")).locations;
+    //this.refreshState();
   }
 
   refreshState() {
-    var _this = this;
-    //  get the list of locations from the db
-    const locations = this.props.firebase.firestore.collection("locations");
-    let listOfLocations = [];
-    let listOfIDs = [];
-    locations.get().then(docs => {
-      docs.forEach(element => {
-        listOfLocations.push(element.data());
-        listOfIDs.push(element.id);
-      });
-      this.setState({ locations: listOfLocations });
-      this.setState({ docIDs: listOfIDs });
-    });
+    let data = this.setState({ locations: data.locations });
+
+    // var _this = this;
+    // //  get the list of space references from the db
+    // const locations = this.props.firebase.firestore.collection("locations");
+    // let listOfLocations = [];
+    // let listOfSpaces = [];
+    // let listOfIDs = [];
+    // locations.get().then(docs => {
+    //   docs.forEach(element => {
+    //     listOfLocations.push(element.data());
+    //     listOfSpaces.push([]);
+    //     for (let i in element.data().Spaces) {
+    //       console.log("Identifier", element.id);
+    //       console.log("Identifier2", element.data().Spaces[i]);
+    //       var spaces = this.props.firebase.firestore.collection("locations");
+    //       console.log("TUTORIAL", spaces.doc(element.id));
+    //       // .doc(element.id)
+    //       // .collection("Spaces")
+    //       // .doc(element.data().Spaces[i]);
+    //       spaces.get().then(dik => {
+    //         console.log("TESSSST", spaces.doc("spaces/" + element.id).data());
+    //       });
+    //       listOfSpaces[i].push();
+    //       //
+    //     }
+    //     listOfIDs.push(element.id);
+    //   });
+
+    //   //
+
+    //   //
+    //   this.setState({ locations: listOfLocations });
+    //   this.setState({ docIDs: listOfIDs });
+    // });
+    // //Get each space by reference
+    // let spaces = [];
+    // const spacess = this.props.firebase.firestore.collection("Spaces");
+    // spacess.get().then(doc => {
+    //   doc.forEach(element => {
+    //     spaces.push(element.data());
+    //     this.setState({ spaceList: spaces });
+    //   });
+    // });
+    // console.log("PRELIMENARY", spaces);
+
+    // //   }
+    // // }
+    // console.log("RESULT", this.state.spaceList);
   }
 
   render() {
     //  here lets do the render list for the things
 
     const locations = [];
-
+    console.log("RESULTER", this.state.spaceList);
     for (let i in this.state.locations) {
-      let spaces = [];
-      for (let j in this.state.locations[i].spaces) {
+      let Spaces = [];
+      for (let j in this.state.locations[i].Spaces) {
         let element = (
           <ListGroupItem
             className="justify-content-between"
             style={{ display: "flex" }}
           >
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <h4>{this.state.locations[i].spaces[j].Type}</h4>
+              <h4>{this.state.locations[i].Spaces[j].Type}</h4>
               <p>Location: </p>
             </div>
 
             <SpaceModal
-              label={this.state.locations[i].spaces[j].Type}
-              occupancy={this.state.locations[i].spaces[j].Occupancy}
-              price={this.state.locations[i].spaces[j].Price}
-              space={this.state.locations[i].spaces[j]}
+              label={this.state.locations[i].Spaces[j].Type}
+              occupancy={this.state.locations[i].Spaces[j].Occupancy}
+              price={this.state.locations[i].Spaces[j].Price}
+              space={this.state.locations[i].Spaces[j]}
               id={this.state.docIDs[i]}
             ></SpaceModal>
           </ListGroupItem>
         );
 
-        spaces.push(element);
+        Spaces.push(element);
       }
-      spaces.push(<AddButton></AddButton>);
+      Spaces.push(<AddButton></AddButton>);
       let element = (
         <ListGroupItem
           style={{ background: "rgba(0,0,0,.125)" }}
@@ -87,7 +127,7 @@ class HomePageBase extends Component {
             </Button>{" "}
           </div>
 
-          <ListGroup>{spaces}</ListGroup>
+          <ListGroup>{Spaces}</ListGroup>
         </ListGroupItem>
       );
       locations.push(element);
@@ -99,10 +139,13 @@ class HomePageBase extends Component {
         <h2>Welcome Back !</h2>
         <br />
         <ButtonGroup style={{ width: "100%" }} size="lg">
-          <Button>My Rentals</Button>
-          <Button>Metrics</Button>
+          <Button tag="a" href={ROUTES.MY_RENTALS}>
+            My Rentals
+          </Button>
           <Button>Help Sections</Button>
-          <Button>Account Settings</Button>
+          <Button tag="a" href={ROUTES.ACCT_SETTINGS}>
+            Account Settings
+          </Button>
         </ButtonGroup>
 
         <div

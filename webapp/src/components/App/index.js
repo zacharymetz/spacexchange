@@ -12,6 +12,8 @@ import HomePage from "../Home";
 import AccountPage from "../Account";
 import AdminPage from "../Admin";
 import About from "../About";
+import Rentals from "../Home/myrentals";
+import Settings from "../Home/accountsettings";
 
 //  all of the about pages
 import NewRenterProfile from "../Rent/registerProfile";
@@ -20,26 +22,55 @@ import * as ROUTES from "../../constants/routes";
 import { withFirebase } from "../Firebase";
 import { withAuthentication } from "../Session";
 
-const App = () => (
-  <Router>
-    <Navigation />
+const App = () => {
+  //  if local storage is empty then we load the default object in ther
+  if (localStorage.getItem("data") == null) {
+    localStorage.setItem(
+      "data",
+      JSON.stringify({
+        locations: [
+          {
+            name: "Tyrell Corp",
+            spaces: [
+              {
+                type: "",
+                price: 0,
+                quantity: 0
+              }
+            ]
+          }
+        ]
+      })
+    );
+  }
 
-    <Route exact path={ROUTES.LANDING} component={LandingPage} />
-    <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-    <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-    <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-    <Route exact path={ROUTES.HOME} component={HomePage} />
-    <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-    <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+  return (
+    <Router>
+      <Navigation />
 
-    <Route
-      exact
-      path={ROUTES.ACCOUNT + "/newrenterprofile"}
-      component={NewRenterProfile}
-    />
+      <Route exact path={ROUTES.LANDING} component={LandingPage} />
+      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route
+        exact
+        path={ROUTES.PASSWORD_FORGET}
+        component={PasswordForgetPage}
+      />
+      <Route exact path={ROUTES.HOME} component={HomePage} />
+      <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route exact path={ROUTES.MY_RENTALS} component={Rentals} />
+      <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route exact path={ROUTES.ACCT_SETTINGS} component={Settings} />
 
-    <Footer />
-  </Router>
-);
+      <Route
+        exact
+        path={ROUTES.ACCOUNT + "/newrenterprofile"}
+        component={NewRenterProfile}
+      />
+
+      <Footer />
+    </Router>
+  );
+};
 
 export default withAuthentication(App);

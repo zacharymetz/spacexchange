@@ -42,11 +42,16 @@ class EditSpace extends Component {
     this.render();
   };
   onSave = event => {
+    const price = this.price;
+    const arrayToUpdate = this.props.firebase.firestore.FieldValue;
+    console.log("SSSSSSSSSSSS", price);
     const db = this.props.firebase.firestore;
     const ref = db
       .collection("locations")
       .doc(this.props.id)
-      .update({});
+      .update({
+        Spaces: [16, 17]
+      });
     if (this.state.view === true) {
       this.setState({ view: false });
     } else {
