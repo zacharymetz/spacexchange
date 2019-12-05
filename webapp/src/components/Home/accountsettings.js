@@ -155,7 +155,6 @@ class SettingsBase extends Component {
               <Button tag="a" href={ROUTES.MY_RENTALS}>
                 My Rentals
               </Button>
-              <Button>Help Sections</Button>
               <Button>Account Settings</Button>
             </ButtonGroup>
           </div>

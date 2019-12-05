@@ -24,18 +24,34 @@ import { withAuthentication } from "../Session";
 
 const App = () => {
   //  if local storage is empty then we load the default object in ther
-  if (localStorage.getItem("data") == null) {
+  if (true) {
+    //localStorage.getItem("data") == null) {
     localStorage.setItem(
       "data",
       JSON.stringify({
         locations: [
           {
-            name: "Tyrell Corp",
+            Name: "Tyrell Corp",
             spaces: [
               {
-                type: "",
-                price: 0,
-                quantity: 0
+                type: "Cubicle",
+                price: 22,
+                quantity: 6,
+                location: "3rd floor",
+                picture: "cubicle.jpg"
+              },
+              {
+                type: "Private Office",
+                price: 35,
+                quantity: 6,
+                location: "3rd floor",
+                picture: "office.jpeg"
+              },
+              {
+                type: "Boardroom",
+                price: 22,
+                quantity: 6,
+                location: "boardroom.jpg"
               }
             ]
           }

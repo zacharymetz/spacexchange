@@ -33,7 +33,7 @@ const ModalExample = props => {
         <ModalHeader toggle={toggle}>{props.label}</ModalHeader>
         <ModalBody style={{ display: "flex", justifyContent: "space-evenly" }}>
           <img
-            src={require("../../img/cubicle.jpg")}
+            src={"/" + props.picture}
             style={{ width: "200px", height: "200px" }}
           />
           <SpaceView

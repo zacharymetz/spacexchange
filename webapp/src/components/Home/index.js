@@ -88,26 +88,28 @@ class HomePageBase extends Component {
     //  here lets do the render list for the things
 
     const locations = [];
-    console.log("RESULTER", this.state.spaceList);
+
     for (let i in this.state.locations) {
       let Spaces = [];
-      for (let j in this.state.locations[i].Spaces) {
+      console.log("RESULTER", this.state.locations[i].spaces);
+      for (let j in this.state.locations[i].spaces) {
         let element = (
           <ListGroupItem
             className="justify-content-between"
             style={{ display: "flex" }}
           >
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <h4>{this.state.locations[i].Spaces[j].Type}</h4>
-              <p>Location: </p>
+              <h4>{this.state.locations[i].spaces[j].type}</h4>
+              <p>Location: {this.state.locations[i].spaces[j].location} </p>
             </div>
 
             <SpaceModal
-              label={this.state.locations[i].Spaces[j].Type}
-              occupancy={this.state.locations[i].Spaces[j].Occupancy}
-              price={this.state.locations[i].Spaces[j].Price}
-              space={this.state.locations[i].Spaces[j]}
+              label={this.state.locations[i].spaces[j].type}
+              occupancy={this.state.locations[i].spaces[j].quantity}
+              price={this.state.locations[i].spaces[j].price}
+              space={this.state.locations[i].spaces[j]}
               id={this.state.docIDs[i]}
+              picture={this.state.locations[i].spaces[j].picture}
             ></SpaceModal>
           </ListGroupItem>
         );
@@ -142,7 +144,6 @@ class HomePageBase extends Component {
           <Button tag="a" href={ROUTES.MY_RENTALS}>
             My Rentals
           </Button>
-          <Button>Help Sections</Button>
           <Button tag="a" href={ROUTES.ACCT_SETTINGS}>
             Account Settings
           </Button>
