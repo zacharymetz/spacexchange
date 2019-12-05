@@ -84,14 +84,14 @@ export default class LandingPage extends Component {
           
     <MapView style={styles.map} initialRegion={region} provider={null}
      
-    ref={(ref) => { this.mapRef = ref }}
-          mapType={Platform.OS == "android" ? "none" : "standard"}>
+        ref={(ref) => { this.mapRef = ref }}
+            mapType={Platform.OS == "android" ? "none" : "standard"}>
 
-          {this.markers}
+            {this.markers}
 
 
-      <UrlTile urlTemplate={tileUrl} maximumZ={19} tileSize={256} />
-  </MapView>);
+        <UrlTile urlTemplate={tileUrl} maximumZ={19} tileSize={256} />
+    </MapView>);
 
     return (
         <View style={styles.container}>

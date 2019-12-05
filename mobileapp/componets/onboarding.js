@@ -34,7 +34,7 @@ export default class onboarding extends React.Component {
 
           <View style={styles.orLine}></View>
         </View>
-        <Login/>
+        <Login></Login>
         
       </View>
     </View>
