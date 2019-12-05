@@ -40,19 +40,7 @@ class SignUpFormBase extends Component {
       .then(() => {
         this.props.firebase.doSignInWithEmailAndPassword(email, passwordOne);
       })
-      .then(() => {
-        // Create a user in your Firebase Cloud Firestore
-        const db = this.props.firebase;
-        const id = this.props.firebase.id();
-        const ref = db
-          .collection("UserData")
-          .doc(id)
-          .set({
-            username: username,
-            email: email,
-            new: true
-          });
-      })
+      
       .then(() => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
@@ -66,24 +54,25 @@ class SignUpFormBase extends Component {
 
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log("HEEEEEEEEEEY");
+    console.log({ [event.target.name]: event.target.value });
+    debugger
   };
 
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state;
+    const { name, email, passwordOne, passwordTwo, error } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
       email === "" ||
-      username === "";
+      name === "";
     return (
       <form onSubmit={this.onSubmit}>
         <FormGroup>
           <Label for="name">Name</Label>
           <Input
             name="name"
-            value={username}
+            value={name}
             onChange={this.onChange}
             type="text"
             placeholder="First Last"
