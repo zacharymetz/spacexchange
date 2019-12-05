@@ -28,11 +28,12 @@ import CancelBooking from './components/cancelBooking';
 //  or juts let them in cuz it just goes to the
 //  first page on the list
 const MainNavigator = createStackNavigator({
+  Login: {screen: Login},
   LandingPage : {screen: LandingPage},
   LoginRegister: {screen: LoginRegister},
   CurrentRentals: {screen: CurrentRentals},
   SpaceCalender: {screen: SpaceCalender},
-  Login: {screen: Login},
+  
   Register: {screen: Register},
   OnBoarding: {screen: onboarding},
   LocationServices: {screen: LocationServices},

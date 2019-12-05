@@ -9,51 +9,6 @@ export default class LandingPage extends Component {
     constructor(props) {
         super(props);
         //  this is just a stand in for the actual compoents 
-        this.entries = [
-            {
-                //  the very first on is kinda special so 
-                inital : true,  //  this is what it will check for in
-                                //  the render 
-                message : "Swipe left To start looking"   
-            },
-            {
-            title : "Cauliflower Tower",
-            image : require('../assets/locations/telus_sky/TelusSky.jpg'),
-            latLong : {
-                latitude: 51.0447,
-                longitude: -114.0719,
-              }
-        },
-        {
-            title : "RBC Building" ,
-            image : require('../assets/locations/rbc/rbc_outside.jpeg'),
-            latLong : {
-                latitude: 51.03,
-                longitude: -114.078,
-                latitudeDelta: 0.0922 / 100,
-                longitudeDelta: 0.0421 / 100,
-              }
-        },{
-            title : "9th Avenue Place",
-            image : require('../assets/locations/9th_avenue/9th_place_outside.jpeg'),
-            latLong : {
-                latitude: 51.045,
-                longitude: -114.085,
-                latitudeDelta: 0.0922 / 100,
-                longitudeDelta: 0.0421 / 100,
-              }
-        }];
-        this.markers = [];
-
-        for(var i =1;i<this.entries.length;i++){
-            this.markers.push(<Marker
-                coordinate={this.entries[i].latLong}
-                title={this.entries[i].title}
-                description={"$15"}
-              />);
-              
-        }
-        this.mapRef = null;
         
       }
 
@@ -76,6 +31,53 @@ export default class LandingPage extends Component {
 
   render() {
     const {navigate} = this.props.navigation;
+    this.entries = [
+        {
+            //  the very first on is kinda special so 
+            inital : true,  //  this is what it will check for in
+                            //  the render 
+            message : "Swipe left To start looking"   
+        },
+        {
+        title : "Cauliflower Tower",
+        image : require('../assets/locations/telus_sky/TelusSky.jpg'),
+        latLong : {
+            latitude: 51.0447,
+            longitude: -114.0719,
+          }
+    },
+    {
+        title : "RBC Building" ,
+        image : require('../assets/locations/rbc/rbc_outside.jpeg'),
+        latLong : {
+            latitude: 51.03,
+            longitude: -114.078,
+            latitudeDelta: 0.0922 / 100,
+            longitudeDelta: 0.0421 / 100,
+          }
+    },{
+        title : "9th Avenue Place",
+        image : require('../assets/locations/9th_avenue/9th_place_outside.jpeg'),
+        latLong : {
+            latitude: 51.045,
+            longitude: -114.085,
+            latitudeDelta: 0.0922 / 100,
+            longitudeDelta: 0.0421 / 100,
+          }
+    }];
+    const entries = this.entries;
+    this.markers = [];
+
+    for(var i =1;i<this.entries.length;i++){
+        this.markers.push(<Marker
+            coordinate={this.entries[i].latLong}
+            title={this.entries[i].title}
+            description={"$15"}
+          />);
+          
+    }
+    this.mapRef = null;
+    
     var region = {
         latitude: 51.0447,
         longitude: -114.0719,
@@ -134,7 +136,7 @@ export default class LandingPage extends Component {
                      
                      this._centerMapOnMarker(index);
                  }}
-              data={this.entries}
+              data={entries}
               renderItem={ ({item, index}) => { 
                   
                     if(index == 0){

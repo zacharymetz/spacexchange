@@ -8,7 +8,7 @@ export default class SideNav extends Component {
     constructor (props){
         super(props)
         this.state = {
-            bounceValue: new Animated.Value(0),
+            bounceValue: new Animated.Value(-280),
             bouncePrimeValue: new Animated.Value(100),
             xWapper: 280,
             Wapper : 0,
@@ -107,9 +107,16 @@ export default class SideNav extends Component {
                     <Text styles={{fontSize:24,fontWeight:500}}>Spaceful</Text>
                     <Text styles={{fontSize:24,fontWeight:500}}>V 0.0.1</Text>
                     {/*<Text styles={{fontSize:24,fontWeight:500}}>Terms | Privacy | About</Text>*/}
+                    <View style={{display : "flex",flexDirection : "row",justifyContent : "space-evenly"}}>
                     <Text style={{color: 'blue'}} onPress={() => Linking.openURL('https://spaceful.logicx.ca/')}>
                         Terms
                     </Text>
+                    <Text> | </Text>
+                    <Text style={{color: 'blue'}} onPress={() => Linking.openURL('https://spaceful.logicx.ca/')}>
+                        Policy 
+                    </Text>
+                    </View>
+                    
                     
                 </View>
         </Animated.View>
