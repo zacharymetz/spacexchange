@@ -1,67 +1,86 @@
-/**
- * Sample React Native App with Firebase
- * https://github.com/invertase/react-native-firebase
- *
- * @format
- * @flow
- */
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import onboarding from './components/onboarding';
+import ConfirmPhone from './components/confirmPhone';
+import LandingPage from './components/landing';
+import LocationListing from './components/location';
+import SideMenu from './components/sideMenu';
+import ShoppingCart from './components/shoppingCart';
+import auth from '@react-native-firebase/auth';
+import ConfirmCart from './components/confirmCart';
+import { firebase } from '@react-native-firebase/auth';
+import React, { useState, useEffect } from 'react';
+import {View, Text} from 'react-native';
+import SpaceCalender from './components/spaceCalender';
+import SearchScreen from './components/searchScreen';
+import TransactionsSummary from './components/transactionsSummary';
+import SpecificTransaction from './components/specificTransaction';
+import LocationServices from './components/locationservices';
+import Profile from './components/profile';
+import LoginRegister from './components/loginregister';
+import Login from './components/login';
+import Register from './components/register';
+import CurrentRentals from './components/currentRentals';
+import CancelBooking from './components/cancelBooking';
 
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+//  we should do something and then
+//  decied weathe r to send them to onboarding
+//  or juts let them in cuz it just goes to the
+//  first page on the list
+const MainNavigator = createStackNavigator({
+  LandingPage : {screen: LandingPage},
+  LoginRegister: {screen: LoginRegister},
+  CurrentRentals: {screen: CurrentRentals},
+  SpaceCalender: {screen: SpaceCalender},
+  Login: {screen: Login},
+  Register: {screen: Register},
+  OnBoarding: {screen: onboarding},
+  LocationServices: {screen: LocationServices},
+  TransactionsSummary: {screen: TransactionsSummary},
+  SpecificTransaction: {screen: SpecificTransaction},
+  SearchScreen: {screen: SearchScreen},
+  ConfirmCart: {screen: ConfirmCart},
+	LocationListing : {screen: LocationListing},
+  ConfirmPhone: {screen: ConfirmPhone},
+  EnableNotifications: {screen: ConfirmPhone},
+  SideMenu: {screen: SideMenu},
+  ShoppingCart: {screen: ShoppingCart},
+  Profile: {screen: Profile},
+  CancelBooking: {screen: CancelBooking},
 
-import firebase from '@react-native-firebase/app';
-
-// TODO(you): import any additional firebase services that you require for your app, e.g for auth:
-//    1) install the npm package: `yarn add @react-native-firebase/auth@alpha` - you do not need to
-//       run linking commands - this happens automatically at build time now
-//    2) rebuild your app via `yarn run run:android` or `yarn run run:ios`
-//    3) import the package here in your JavaScript code: `import '@react-native-firebase/auth';`
-//    4) The Firebase Auth service is now available to use here: `firebase.auth().currentUser`
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu',
-});
-
-const firebaseCredentials = Platform.select({
-  ios: 'https://invertase.link/firebase-ios',
-  android: 'https://invertase.link/firebase-android',
-});
-
-type Props = {};
-
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native + Firebase!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-        {!firebase.apps.length && (
-          <Text style={styles.instructions}>
-            {`\nYou currently have no Firebase apps registered, this most likely means you've not downloaded your project credentials. Visit the link below to learn more. \n\n ${firebaseCredentials}`}
-          </Text>
-        )}
-      </View>
-    );
+},{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
   }
+ });
+
+const Nav = createAppContainer(MainNavigator);
+
+function App() {
+  // Set an initilizing state whilst Firebase connects
+  const [initilizing, setInitilizing] = useState(true);
+  const [user, setUser] = useState();
+ 
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initilizing) setInitilizing(false);
+  }
+ 
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; //unsubscribe on unmount
+  }, []);
+ 
+  if (initilizing) return null;
+  return (
+    <View>
+      <Text>Welcome </Text>
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+
+export default Nav;

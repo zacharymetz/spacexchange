@@ -11,9 +11,11 @@ import PasswordForgetPage from "../PasswordForget";
 import HomePage from "../Home";
 import AccountPage from "../Account";
 import AdminPage from "../Admin";
+
 import About from "../About";
 import Rentals from "../Home/myrentals";
 import Settings from "../Home/accountsettings";
+
 
 //  all of the about pages
 import NewRenterProfile from "../Rent/registerProfile";

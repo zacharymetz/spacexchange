@@ -46,6 +46,11 @@ const NavigationAuth = () => {
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
+        <NavItem>
+            <NavLink href={ROUTES.HOME} style={{ color: "black" }}>
+              Dashboard
+            </NavLink>
+          </NavItem>
           <NavItem>
             <NavLink href={ROUTES.HOME} style={{ color: "black" }}>
               Dashboard
@@ -62,6 +67,7 @@ const NavigationAuth = () => {
               About
             </NavLink>
           </NavItem>
+
           <NavItem>
             <SignOutButton />
           </NavItem>

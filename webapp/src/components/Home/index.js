@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import { withFirebase } from "../Firebase";
 import { compose } from "recompose";
+
 import SpaceModal from "./spaceModal";
 import AddButton from "./addModal";
 import { Link, withRouter } from "react-router-dom";
@@ -141,12 +142,14 @@ class HomePageBase extends Component {
         <h2>Welcome Back !</h2>
         <br />
         <ButtonGroup style={{ width: "100%" }} size="lg">
+
           <Button tag="a" href={ROUTES.MY_RENTALS}>
             My Rentals
           </Button>
           <Button tag="a" href={ROUTES.ACCT_SETTINGS}>
             Account Settings
           </Button>
+
         </ButtonGroup>
 
         <div
